@@ -1,0 +1,113 @@
+<html>
+<meta charset="utf-8">
+<body>
+<p><a href="index.html">eBlocker Help</a> &gt; <a href="360000227154.html">Knowledge Base</a> &gt; <a href="360003201954.html">eBlocker Menu</a></p>
+<h1>HTTPS</h1>
+<p><span class="wysiwyg-color-red120">eBlocker Base ✕</span><span class="wysiwyg-color-green120"> / eBlocker Pro ✓ / eBlocker Family ✓</span></p>
+<p><span class="wysiwyg-color-black">This page is divided into the following sections:</span></p>
+<ul>
+<li>Status</li>
+<li>Certificate</li>
+<li>Communication Failures</li>
+<li>Trusted Apps</li>
+<li>Trusted Websites</li>
+<li>Manual Recording</li>
+</ul>
+<p><img src="../attachments/360017142194-HTTPS-EN-01.png" alt="HTTPS-EN-01.png"></p>
+<p><span class="wysiwyg-underline"><strong><span class="wysiwyg-color-red120">Important:</span></strong></span></p>
+<p>If you activate this function, you must be familiar with the advanced settings of your devices and deposit an encryption certificate on the devices in order to analyze the data stream through the eBlocker.</p>
+<p><span class="wysiwyg-underline"><strong>Prologue:</strong></span></p>
+<p>SSL stands for Secure Sockets Layer and is a protocol used to encrypt communication "end-to-end" between two communication partners. Sometimes you may also encounter the abbreviation TLS (TLS stands for Transport Layer Security). It is basically the same as SSL. If the standard Web protocol HTTP is encrypted using SSL, it is called HTTPS. You can recognize an encrypted loaded page by the URL starting with https:// Many browsers also display a green lock in the address bar.</p>
+<p>Many websites, especially those of banks and online shops, are now protected with SSL encryption. This way you can be sure that you are actually communicating with the provider who's URL you have accessed and that no third party can change or read your entered data. However, not only reputable shops and banks use SSL. Tracking and advertising providers are also increasingly collecting their data via HTTPS/SSL. Your profile data is then sent to the tracking server in encrypted form, but of course this does not prevent the data collector from continuing to create a detailed profile of you.</p>
+<p>Once HTTPS support is enabled in eBlocker, each eBlocker generates a unique device root certificate and a private key. This certificate is used to encrypt communication between your device and the eBlocker when the eBlocker loads an SSL-protected web page.</p>
+<p>Once HTTPS is activated, the eBlocker terminates the encrypted connection so that the data stream can be analyzed. The eBlocker is the end of "end-to-end encryption". Since the browser expects an encrypted connection with HTTPS, the eBlocker then encrypts the communication to your end device. To do this, it is necessary to first include the so-called security certificate of your eBlocker in your operating system and then, if necessary, in the browsers with its own certificate store as described in Section 6.2. This certificate is sometimes also called a certificate for certification authorities, a root certificate, or a root certificate.</p>
+<p>We have no access to your private key or your device and have done everything to protect the eBlocker from hackers - but of course there is no 100 percent security. We offer SSL support as an option. If you feel uncomfortable with the eBlocker decrypting the HTTPS connection, please do not activate this option.</p>
+<p>We offer HTTPS support as an option. If you are uncomfortable with the eBlocker decrypting the HTTPS connection, please do not enable this option.</p>
+<p>Without HTTPS support, eBlocker will protect you with its Domain Blocker.<br><a href="360008681633.html" target="_blank" rel="noopener">Here you can read the difference between Pattern and Domain Blocker.</a></p>
+<h2><strong>Status</strong></h2>
+<p>Activate the HTTPS function for your eBlocker by sliding the <strong>switch</strong> to the right.</p>
+<p><img src="../attachments/360017142194-HTTPS-EN-02.png" alt="HTTPS-EN-02.png"></p>
+<p>Please note that the certificate must first be stored in your operating system and then, if necessary, in browsers with their own certificate store.</p>
+<p>If you click on the <strong>HTTPS Assistant</strong> button, an assistant will guide you through the process of storing the eBlocker certificate. The link Instructions leads you to an article in which we describe the deposit of the eBlocker certificate step by step for the most important operating systems.</p>
+<h2><strong>Certificate</strong></h2>
+<p>From here you can also store the eBlocker certificate using the HTTPS wizard. The link Instructions also leads you to an article in which we describe step by step how to deposit the eBlocker certificate for the most important operating systems.</p>
+<p><img src="../attachments/360017142194-HTTPS-EN-03.png" alt="HTTPS-EN-03.png"></p>
+<p>Here you can view some information about your certificate.</p>
+<p><img src="../attachments/360017142194-HTTPS-EN-04.png" alt="HTTPS-EN-04.png"></p>
+<p>If you click on the <strong>Download</strong> button, you can also save the eBlocker certificate to your computer. This may be necessary, for example, if you are using an app with its own certificate store (example: Thunderbird mail client).</p>
+<p>The eBlocker certificate is automatically renewed four weeks before expiration.</p>
+<p><img src="../attachments/360017142194-HTTPS-EN-05.png" alt="HTTPS-EN-05.png"></p>
+<p>After the renewal the new certificate must be taken up again on all devices!<br>You can also renew the eBlocker certificate manually at any time by clicking the <strong>Renew Now</strong> button.</p>
+<h2><strong>Communication Failures</strong></h2>
+<p>Here you can examine the data stream of individual applications with a simple tool and create exceptions if an app or web page does not work correctly with HTTPS support enabled.</p>
+<p><img src="../attachments/360017142194-HTTPS-EN-06.png" alt="HTTPS-EN-06.png"></p>
+<p>The recorded HTTPS connection errors will help you determine which apps are affected, or which Domains//IP addresses should be defined as exceptions for each app.</p>
+<p>The eBlocker can detect domains that can be added to an existing trusted app exception. In the recording you will also be shown from which device and at what time the connection error was recorded.</p>
+<p><img src="../attachments/360017142194-HTTPS-EN-07.png" alt="HTTPS-EN-07.png"></p>
+<p>With a click on the <strong>Edit</strong> button you can add the domain to this app exception. Then click the <strong>Mark as trusted</strong> button to save your selection.</p>
+<p>In the Suggested Trusted Websites list, the eBlocker displays connection errors that could not be assigned to an existing app exception.</p>
+<p><img src="../attachments/360017142194-HTTPS-EN-08.png" alt="HTTPS-EN-08.png"></p>
+<p>With a click on the button <strong>Edit</strong> you can select the domain you want to save.</p>
+<p>There are three options for saving the domain:</p>
+<ul>
+<li>Add new App</li>
+<li>Add to existing App</li>
+<li>Add to whitelist</li>
+</ul>
+<p><strong>Add new App</strong></p>
+<p>Use this option to create a new Exception app.</p>
+<p><img src="../attachments/360017142194-HTTPS-EN-09.png" alt="HTTPS-EN-09.png"></p>
+<p>Assign a name for the Exception app and enter a short description if necessary.</p>
+<p>The selected domains will be displayed here again.</p>
+<p>Click the <strong>Save</strong> button to save your new App Exception. You will now find them in the Trusted Apps overview. Newly created App Exceptions are automatically activated after creation.</p>
+<p><strong>Add to existing App</strong></p>
+<p>Here you can add the selected domains to an existing App Exception.</p>
+<p><img src="../attachments/360017142194-HTTPS-EN-10.png" alt="HTTPS-EN-10.png"></p>
+<p>Select an existing Apps exception and check the domains again. If you now click on the <strong>Save</strong> button, the domains specified here will automatically be added to the existing App Exception.</p>
+<p><strong>Add to whitelist</strong></p>
+<p>Here you can add the found domains to the list of Trusted Websites.</p>
+<p><img src="../attachments/360017142194-HTTPS-EN-11.png" alt="HTTPS-EN-11.png"></p>
+<p>Assign a name here and check the domains again. If you now click on the <strong>Save</strong> button, the domains specified here will automatically be added to the list of Trusted Websites.</p>
+<p>At the bottom of the page you will find the button <strong>Delete all recordings</strong>. If you click on this button, all recordings will be deleted.</p>
+<h2><strong>Trusted Apps</strong></h2>
+<p>Here you can see a list of predefined Trusted Apps.</p>
+<p><img src="../attachments/360017142194-23-01en-trustedapps.png" alt="23-01en-trustedapps.png"></p>
+<p>If you have a problem with an App, then look here for the name of the App. Maybe there is already a predefined exception for this App. If so, then activate the exception by clicking on the exception and using the switch to activate the exception.</p>
+<p>In the list you can see the name of the App, a short description, an excerpt of the allowed Domains/IPs and the status of the App. The status distinguishes between System owned App and User defined App.</p>
+<p>You can easily enable or disable all exceptions in the Trusted Apps overview by changing the switch in front of the exception.</p>
+<p>Please note that activated exception lists means that the corresponding Apps and Websites are not protected by the eBlocker and your data could be passed on to third parties.</p>
+<p>To add a new App Exception click the<strong> New App definition</strong> button.</p>
+<p><img src="../attachments/360017142194-HTTPS-EN-13.png" alt="HTTPS-EN-13.png"></p>
+<p>Enter a name and, if necessary, a description for the app.</p>
+<p>Now you can enter one Domain / IP per line for these exceptions.</p>
+<p>If you click on the <strong>Save</strong> button, this exception will be added to the list of exceptions and automatically activated for you.</p>
+<p>Click the <strong>Edit</strong> button to delete an App exception from the list. Then select the affected App Exception and click the <strong>Delete or Reset App</strong> button.</p>
+<p>Only predefined app exceptions can be reset if they have added additional domains to them.</p>
+<p>In the list of App Exceptions, click an App Exception to edit it.</p>
+<p><img src="../attachments/360017142194-HTTPS-EN-14.png" alt="HTTPS-EN-14.png"></p>
+<p>Here you can edit the name and description of the app by clicking on the pen.</p>
+<p><img src="../attachments/360017142194-HTTPS-EN-15.png" alt="HTTPS-EN-15.png"></p>
+<p>Use this switch to activate the exception list. The eBlocker will then no longer control the communication to the specified domains / IPs.</p>
+<p><img src="../attachments/360017142194-HTTPS-EN-16.png" alt="HTTPS-EN-16.png"></p>
+<p>Click the <strong>New</strong> button to add a domain / IP to this list.</p>
+<p>Click the <strong>Edit</strong> button to delete a domain from the list. Then select the domain concerned and click on the <strong>Delete Domain/IP</strong> button.</p>
+<h2><strong>Trusted websites</strong></h2>
+<p>Here you can see a list of Trusted Websites.</p>
+<p><img src="../attachments/360017142194-HTTPS-EN-17.png" alt="HTTPS-EN-17.png"></p>
+<p>In this list you will see all domains that are exceptions to the Trusted Apps.</p>
+<p>The list consists of the name, the Domain/IP, the name of the App Exception if applicable, and the status System owned Domain/IP or User defined Domain/IP.</p>
+<p>If individual web pages are not compatible with the eBlocker, you can exclude them from eBlocker protection by clicking the <strong>Add Website</strong> button.</p>
+<p><img src="../attachments/360017142194-HTTPS-EN-18.png" alt="HTTPS-EN-18.png"></p>
+<p>Enter a name for the exception and enter the Domain or IPs. After you click the <strong>Save</strong> button, this exception will be added to the list of Trusted Websites.</p>
+<p>Click the <strong>Edit</strong> button to delete a Trusted Websites from the list. Then select the Web Exception concerned and click the <strong>Remove Website</strong> button.</p>
+<p>Important: Only User defined Domain/IP Exceptions can be deleted here.</p>
+<h2><strong>Manual Recording</strong></h2>
+<p>With the manual HTTPS diagnosis it is possible to record further errors - in addition to those found under "Communication failures" - and add them to the list of Trusted Apps.</p>
+<p><img src="../attachments/360017142194-HTTPS-EN-19.png" alt="HTTPS-EN-19.png"></p>
+<p>Use the list buttons to select the device from your network where the errors occur, the maximum duration of the recording and the maximum size of the log. Default: 5 minutes, 100 MB.</p>
+<p>Now use the App on the selected device when errors occur. After the automatic or manual stop of the recording, the eBlocker creates a list of the called domain names and the connected IP addresses, the used protocol and the eBlocker rules for you. In the last column you can agree or disagree with the recommended rule issued by the eBlocker.</p>
+<p>The table rows of the analyzed connections can be adjusted individually for each called domain by clicking on them.</p>
+<p>You can test the recorded apps and add them to a new app definition for the list of trusted apps.</p>
+<p><a href="360004553714.html" target="_blank" rel="noopener">Here you will find a practical example...</a></p>
+</body>
+</html>

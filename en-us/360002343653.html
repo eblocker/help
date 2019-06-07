@@ -1,0 +1,17 @@
+<html>
+<meta charset="utf-8">
+<body>
+<p><a href="index.html">eBlocker Help</a> &gt; <a href="360000222273.html">Release Notes</a> &gt; <a href="360000523174.html">Version 0.x</a></p>
+<h1>Release Notes 0.9</h1>
+<p><strong><span style="font-size: 20px;">New Features</span></strong></p>
+<p><strong>SSL-Support</strong><br>Now the beta version of SSL/HTTPS-support can be activated via the settings under „SSL“. Once SSL-support is activated the eBlocker terminates the SSL-connection (instead of the browser) and encrypts the connection to the browser again. Please note that a <strong>security certificate needs to be installed</strong> once only in your browser in order for SSL to work. The installation is described in the settings and is done with a few clicks that take only seconds. Additionally we recommend to add websites that need end-to-end security (i.e. online banking sites) to the SSL exemption list in the Settings.</p>
+<p><strong>Pause Feature</strong><br>eBlocker’s activity can now be deactivated for 5 minutes on a particular device in the case that websites are not displayed correctly or links are not directed to the desired page. After 5 minutes eBlocker resumes to normal activity automatically.</p>
+<p><strong>License Renewal</strong><br>Update licenses can now be renewed by entering a valid license key without the need to delete a previously activated license.</p>
+<p><strong><span style="font-size: 20px;">Bugfixes and Improvements</span></strong></p>
+<p><strong>Android WLAN connectivity improved</strong><br>Android devices are testing the WLAN Internet connectivity by requesting known tracking services from Google (so called “Google Captive Portal Check”). In the case that the Android device can not connect to the Google service, because the request gets eblocked, the Android device disconnects and reinitiates the WLAN connection.</p>
+<p>To avoid this behavior the eBlocker now answers the requests from Android devices instead of Google service so no data is being sent to Google anymore. This default behavior can be deactivated in the Setting under Anonymization.</p>
+<p> </p>
+<p><strong>Tracking Links / 1x1-Pixel and empty pages behavior improved</strong><br>Recognition of tracking links (ie. in newsletters) that profile user activity has been improved so that users are automatically forwarded to the target page without getting tracked. In the case that eBlocker can not determine the target page automatically a dialog is being shown to the user.</p>
+<p><strong>Miscellaneous Bugs</strong><br>Additionally we’ve fixed several bugs in the backend and optimized the pattern matching algorithm for blockinglists.</p>
+</body>
+</html>

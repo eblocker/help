@@ -1,0 +1,31 @@
+<html>
+<meta charset="utf-8">
+<body>
+<p><a href="index.html">eBlocker Help</a> &gt; <a href="360000222273.html">Release Notes</a> &gt; <a href="360000523174.html">Version 0.x</a></p>
+<h1>Release Notes 0.8.9-2</h1>
+<p><span style="font-size: 18px;"><span style="font-size: 20px;">New Features</span></span></p>
+<p> </p>
+<p>*** Attention: Since version 0.8.9-2 we support only hardware with at least 512 MB RAM ***</p>
+<p><span style="font-size: 18px;"><strong>Advanced Anonymization</strong></span></p>
+<p>In the settings we've added a new section "Anonymization" where you can access the following new features:</p>
+<p><strong>Tor exit country selectable</strong> <br>Now you can select the Tor exit nodes by country. If more than one country is selected the IP will be randomly changed between the countries.</p>
+<p>Now, there is <strong>experimental support </strong>for two advanced features:</p>
+<p><strong>WebRTC Anti IP-Leak</strong><br>Background: WebRTC enables real time communication by establishing P2P connections. This is useful for some applications like VoIP calling or chatting. But WebRTC leaks your real IP address to establish these connections (even your local LAN IP) to the peers or webservers. </p>
+<p>Enabling this option disables the WebRTC protocol to prevent IP leakage.</p>
+<p><strong>HTTP Referer Removal</strong><br>Background: HTTP referer header are send when you browse the web. The referer tells the webserver, which website refered you to the current site. The HTTP referer can be used by the current site to collect data about your browsing habits. Some websites rely on HTTP referers internally. Enabling this option can cause issues with some sites.</p>
+<p>WebRTC and HTTP Referer blocking are disabled by default.</p>
+<h3><span style="font-size: 20px;">Bugfixes and Improvements</span></h3>
+<ul>
+<li>An issue with blocking list updates was fixed on boards with only 512 MB RAM (Raspberry Pi B+).</li>
+</ul>
+<ul>
+<li>The automatic update switch is now showing the correct status.</li>
+<li>eBlocker now starts even without a DHCP server in the network in automatic mode, so that the emergency IP <a href="http://169.254.94.109:3000/">http://169.254.94.109:3000/</a> should always be accessible.</li>
+<li>Improved the caching for faster loading of the eBlocker user interface.</li>
+</ul>
+<h3><strong>Security updates</strong></h3>
+<ul>
+<li>The glibc6 package was updated due to security vulnerability (CVE-2015-7547).</li>
+</ul>
+</body>
+</html>

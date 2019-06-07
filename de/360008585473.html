@@ -1,0 +1,135 @@
+<html>
+<meta charset="utf-8">
+<body>
+<p><a href="index.html">eBlocker Help</a> &gt; <a href="360000222273.html">Release Notes</a> &gt; <a href="360001752594.html">Version 2.x</a></p>
+<h1>Release Notes 2.0</h1>
+<p><span class="wysiwyg-font-size-large"><strong>eBlockerOS 2.0.15</strong></span></p>
+<p><strong>Fehlerbehebung</strong></p>
+<p><strong>eBlocker Mobile</strong></p>
+<p>Nach dem letzten Update 2.0.14 konnte es zu Verbindungsproblemen von Android-Geräten zu eBlocker Mobile kommen. Dieses Problem wurde behoben.</p>
+<hr>
+<p><span class="wysiwyg-font-size-large"><strong>eBlockerOS 2.0.14</strong></span></p>
+<p><strong>Fehlerbehebung</strong></p>
+<p><strong>Automatischer Netzwerk-Modus</strong></p>
+<p>In seltenen Fällen konnte der eBlocker nach der Verlängerung der DHCP-Lease-Zeit seiner IP-Adresse in einen Zustand geraten, in dem er den Netzwerkverkehr nicht mehr weiterleitete. Dieses Problem wurde behoben.</p>
+<hr>
+<p><span class="wysiwyg-font-size-large"><strong>eBlockerOS 2.0.13</strong></span></p>
+<p><strong>Fehlerbehebung</strong></p>
+<p><strong>VPN-Konfiguration</strong></p>
+<p>In einigen Fällen konnte die OpenVPN-Konfiguration von VPN Providern wegen eines ungewöhnlichen Konfigurationsformats nicht korrekt verarbeitet werden. Dieses Problem wurde behoben.</p>
+<p><strong>DNS-Firewall</strong></p>
+<p>Sonderzeichen in DNS-Anfragen oder -Antworten konnten in einzelnen Fällen zu Problemen führen. Dieser Fehler wurde behoben.</p>
+<hr>
+<p><span class="wysiwyg-font-size-large"><strong>eBlockerOS 2.0.11</strong></span></p>
+<p><strong>Fehlerbehebung</strong></p>
+<p><strong>Log-Dateien</strong></p>
+<p>In einigen Fällen konnte es vorkommen, dass die automatische Begrenzung und Entfernung von Log-Dateien nicht korrekt funktionierte. Dieser Fehler wurde behoben.</p>
+<hr>
+<p><span class="wysiwyg-font-size-large"><strong>eBlockerOS 2.0.8</strong></span></p>
+<p><strong>Fehlerbehebungen</strong></p>
+<p><strong>eBlocker-Setup</strong></p>
+<p>Der Text der Endbenutzer-Lizenzvereinbarung wurde nicht immer in der richtigen Sprache angezeigt. Dieser Fehler wurde behoben.</p>
+<p><strong>HTTPS-Unterstützung</strong></p>
+<p>In einigen Fällen ist der eBlocker bei der ersten Aktivieren von HTTPS abgestürzt. Ein Neustart war notwendig, um den normalen Betrieb wiederherzustellen. Dieser Fehler betraf nur Benutzer, welche die HTTPS-Unterstützung in eOS 1.x nie aktiviert hatten. Dieser Fehler wurde behoben.</p>
+<hr>
+<p><span class="wysiwyg-font-size-large"><strong>eBlockerOS 2.0.6</strong></span></p>
+<p><strong>Fehlerbehebungen und Verbesserungen</strong></p>
+<p><strong>Dashboard-Karten</strong></p>
+<p>Initiale Anordnung der Dashboard-Karten verbessert. Diese Änderung wirkt sich nur auf neu angelegte Nutzer aus, individuelle Anordnungen werden nicht überschrieben.</p>
+<p><strong>Dashboard-Hinweise</strong></p>
+<p>Die Pop-Up-Hinweise auf das Dashboard, sowie der Hinweis, für das Dashboard ein Lesezeichen anzulegen, wurden für Smartphone-Bildschirme angepasst. Ein Scrollen ist dort jetzt nicht mehr notwendig. Außerdem wurde ein Bug behoben, der dazu führen konnte, dass diese Hinweise nicht nur in Browsern, sondern auch mitten in Apps angezeigt wurden.</p>
+<p><strong>eBlocker Mobile Verbindungstest</strong></p>
+<p>Das Ergebnis des Verbindungstests wurde nicht immer korrekt angezeigt. Insbesondere konnte es vorkommen, dass ein erfolgreicher Test als fehlgeschlagen angezeigt wurde.<br>In einzelnen Fällen wurde für den Verbindungstest nicht der korrekte Port verwendet.<br>Diese Fehler wurden behoben.</p>
+<p><strong>HTTPS-Unterstützung / Vertrauenswürdige Apps</strong></p>
+<p>Bei Anlegen von Ausnahmelisten für neue, vertrauenswürdige Apps wurden die Eingaben nicht immer korrekt auf Konsistenz geprüft, bzw. fehlerhafte Eingaben wurden nicht immer als solche angezeigt. Dieser Fehler wurde behoben.</p>
+<p><strong>Rücksetzen auf Werkseinstellungen</strong></p>
+<p>Beim Start des Rücksetz-Prozesses über die eBlocker Einstellungen wurde nicht klar angezeigt, dass der Prozess läuft und dass das System anschließend herunterfährt. Dieser Fehler wurde behoben.</p>
+<p><strong>Domain-Blocker</strong></p>
+<p>Das Blockieren einer sehr langen URL führte zu Anzeigeproblemen auf der Sperrseite, da die URL bei der Anzeige nicht korrekt umgebrochen wurde. Dieses Problem wurde behoben.</p>
+<p><strong>Automatische Aktualisierungen</strong></p>
+<p>Die Anzeige des Zeitfensters für die automatische Aktualisierung hat nicht immer die korrekte Uhrzeit wiedergegeben, auch wenn die Aktualisierung selbst immer zur richtigen Zeit durchgeführt wurde. Dieser Anzeigefehler wurde behoben.</p>
+<p><strong>Manuelle Aufzeichnung von HTTPS-Verbindungsfehlern</strong></p>
+<p>Die Übernahme von Domains aus der Liste der aufgezeichneten Verbindungsfehler in die Definition einer neuen Ausnahmeliste war fehlerhaft. Dieser Fehler wurde behoben.</p>
+<p><strong>Datenbank-Fehler bei Blocker-Statistik</strong></p>
+<p>In seltenen Fällen konnte die Datenbank für die Blocker-Statistik beim Hochfahren des eBlockers nicht gelesen werden, wodurch der Startvorgang abgebrochen wurde. Dieser Fehler wurde behoben.</p>
+<p><strong>VPN-Profile</strong></p>
+<p>In seltenen Fällen konnte es vorkommen, dass ein VPN-Profile zeitweilig nicht korrekt aus der Datenbank gelesen wurde. Die VPN-Verbindung konnte dann vorübergehend nicht aufgebaut werden. Dieser Fehler wurde behoben. </p>
+<hr>
+<p><span class="wysiwyg-font-size-large"><strong>eBlockerOS 2.0.4</strong></span></p>
+<p><strong>Beseitigte Fehler und Verbesserungen</strong></p>
+<p><strong>Gerätenamen</strong></p>
+<p>Neue Geräte im Heimnetz erhalten jetzt automatisch einen Namen. Sie können jedoch weiterhin eigene Namen vergeben, um die Geräte noch einfacher wiederzuerkennen.</p>
+<p><strong>DNS-Firewall</strong></p>
+<p>In seltenen Fällen konnte eine fehlerhafte DNS-Antwort eines externen Servers oder das Hochfahren des DNS-Servers nach einem Update zum Absturz des DNS-Servers führen. Dieser Fehler wurde behoben.</p>
+<p><strong>DNS-Firewall</strong></p>
+<p>Falsche IP-Adressen für externe DNS-Server werden jetzt korrekt als „nicht verfügbar“ angezeigt.</p>
+<p><strong>HTTPS-Unterstützung</strong></p>
+<p>Unvollständig konfigurierte Websites konnten in einzelnen Fällen nicht über den eBlocker aufgerufen werden, weil der eBlocker keine sichere Verbindung zu diesen Websites aufbauen konnte. Dieses Problem wurde behoben.</p>
+<p><strong>Blocker-Einstellungen</strong></p>
+<p>In seltenen Fällen konnte es dazu kommen, dass der eBlocker für ein Gerät deaktiviert war, obwohl die Anzeige auf „aktiviert“ stand. Dieser Fehler wurde behoben.</p>
+<p><strong>Automatischer Netzwerk-Modus</strong></p>
+<p>Die Stabilität des automatischen Netzwerk-Modus wurde weiter verbessert: Manche Geräte, die nur zeitweilig mit dem Netz verbunden sind, haben bei der erneuten Verbindung in einzelnen Fällen einen Netzwerkfehler angezeigt. Dieser Fehler wurde behoben.</p>
+<p><strong>Allgemein</strong></p>
+<p>Wie immer gibt es zahlreiche weitere Verbesserungen und Fehlerbehebungen, die den eBlocker schneller und zuverlässiger machen.</p>
+<p><strong>Und schließlich ...</strong></p>
+<p>Die Seite „Über eBlocker“ enthält eine persönliche Nachricht des eBlocker-Teams an Sie. Wir freuen uns auf Ihr Feedback zum neuen eBlocker 2.</p>
+<hr>
+<p><span class="wysiwyg-font-size-large"><strong>eBlockerOS 2.0</strong></span></p>
+<p><strong>Neu in eBlocker 2</strong></p>
+<p><strong>Benutzerfreundliche Übersicht der eBlocker Einstellungen</strong></p>
+<p>Die Nutzer-Oberfläche der eBlocker Einstellungen wurde komplett überarbeitet:</p>
+<ul>
+<li>Die Nutzer-Oberfläche ist übersichtlicher und intuitiver bedienbar. Auch die neuen Symbole sorgen für eine bessere Orientierung.</li>
+<li>Sie ist nun auch auf den kleineren Bildschirmen von Tablets und Smartphones voll einsatzfähig.</li>
+<li>Die wichtigsten und meist genutzten Funktionen sind nach oben gerückt und leichter zu finden.</li>
+<li>Zusätzliche Assistenten unterstützen Sie bei Bedarf.</li>
+<li>Kontextbasierte Hilfe finden Sie auf jeder Seite der eBlocker Einstellungen.</li>
+</ul>
+<p><strong>Optimierte Schutzfunktionen bei HTTPS-verschlüsselten Seiten [eBlocker Pro, eBlocker Family]</strong></p>
+<p>Mit dem Domain-Blocker wurde eine zusätzliche, alternative Blocker-Technik gegen Tracker und trackende Werbung in den eBlocker integriert:</p>
+<ul>
+<li>Tracker und Werbung können auf HTTPS-verschlüsselten Seiten nun auch ohne die Aktivierung der HTTPS-Unterstützung blockiert werden. D.h. ohne dass das eBlocker-Zertifikat in allen Geräten und in allen Browsern aufgenommen werden muss.</li>
+<li>Den bekannten Pattern-Blocker, der auf Mustererkennung basiert, gibt es natürlich weiterhin: Sie können für jedes Gerät entscheiden, welchen Blocker Sie verwenden möchten.</li>
+<li>Wenn die Blocker-Auswahl auf „automatisch“ steht, verwendet der eBlocker für jedes Gerät automatisch die jeweils besten Blocker für eine optimale Schutzfunktion.</li>
+<li>Unabhängig vom gewählten Blocker können Sie selbst Ausnahmen definieren, um einzelne Domains von der Blockierung auszunehmen, oder um zusätzliche Domains in die Blockier-Listen aufzunehmen.</li>
+</ul>
+<p><strong>Verbesserter Jugendschutz mit fragFINN [eBlocker Family]</strong></p>
+<p>In Zusammenarbeit mit fragFINN e.V. bietet der eBlocker verbesserten Jugendschutz für kleinere Kinder:</p>
+<ul>
+<li>Geräte, die durch das fragFINN-Profil geschützt sind, erlauben den Zugriff nur auf geprüfte, handverlesene Websites, die für Kinder auch wirklich geeignet sind.</li>
+<li>Der Zugriff auf alle anderen Websites wird unterbunden.</li>
+<li>Wenn der Jugendschutz-Blocker den Zugriff auf eine Seite verbietet, wird dort automatisch die fragFINN-</li>
+<li>Suchmaschine angeboten, um das Finden von erlaubten Seiten zu erleichtern.</li>
+<li>Wenn für den eBlocker die Sprachvariante englisch gewählt wurde, wird anstelle von fragFINN die Suchmaschine von DuckDuckGo mit aktiviertem Jugendschutz-Filter angeboten.</li>
+</ul>
+<p><strong>eBlocker Mobile: eBlocker-Schutz auch von unterwegs</strong></p>
+<p>Die Einrichtung von eBlocker Mobile wurde wesentlich vereinfacht, so dass jetzt auch technisch nicht versierte Nutzer den vollen eBlocker Schutz für mobile Geräte genießen können:</p>
+<ul>
+<li>Ein Einrichtungsassistent und die ausführliche Online-Hilfe unterstützen Sie bei der Einrichtung von eBlocker Mobile.</li>
+<li>Der neue, kostenlose eBlocker Dynamic DNS Dienst erlaubt Ihnen, eBlocker Mobile unbegrenzt zu testen, ohne einen externen (und eventuell kostenpflichtigen) Dynamic DNS Zugang einrichten zu müssen.</li>
+<li>Sofern Ihr WLAN-Router UPnP unterstützt, bzw. wenn diese Funktion auf dem Router aktiviert wurde, richtet der eBlocker automatisch die benötigte Port-Weiterleitung für Sie ein.</li>
+<li>Ein automatischer Verbindungstest zeigt Ihnen schon bei der Einrichtung – und ohne dass Sie ein mobiles Gerät verbinden müssen – ob der Zugriff aus dem Internet funktioniert.</li>
+<li>Eine neue Dashboard-Karte vereinfacht die Verbindung Ihrer mobilen Geräte mit eBlocker Mobile: Laden Sie die OpenVPN-Konfiguration direkt auf dem mobilen Gerät herunter. Je nach verwendeter OpenVPN-App öffnet sich diese automatisch und übernimmt die Konfiguration in einem Arbeitsschritt.</li>
+<li>Die OpenVPN-Konfiguration wird automatisch für die unterschiedlichen Betriebssysteme (Windows, macOS, iOS, Android, Linux oder andere) angepasst.</li>
+<li>Eine ausführliche Online-Hilfe, die direkt über die Dashboard-Karte erreichbar ist, beschreibt genau, wie es geht.</li>
+</ul>
+<p><strong>Alle Funktionen jetzt auch über das Dashboard</strong></p>
+<p>Das eBlocker Dashboard (bisher: „eBlocker Übersicht“) ist nun die Schaltzentrale für alle Einstellungen und Informationen rund um den eBlocker und Ihr aktuelles Gerät:</p>
+<ul>
+<li>Alle Funktionen, die bisher nur über die ControlBar erreichbar waren, stehen nun auch im Dashboard zur Verfügung.</li>
+<li>Das Dashboard löst damit die bekannte ControlBar weitgehend ab.</li>
+<li>Damit stehen immer alle Funktionen zur Verfügung, unabhängig davon, ob das eBlocker Symbol auf einer Seite sichtbar ist oder nicht.</li>
+<li>Die ControlBar kann auf Wunsch weiterhin verwendet werden, sofern die HTTPS-Unterstützung aktiviert ist.</li>
+<li>Wir empfehlen, für das Dashboard ein Lesezeichen anzulegen und auf mobilen Geräten als App dem Home-Bildschirm hinzuzufügen, damit es jederzeit leicht erreichbar ist.</li>
+</ul>
+<p><strong>Weitere neue Funktionen</strong></p>
+<p><strong>Blocker-Statistik im Dashboard [eBlocker Pro, eBlocker Family]</strong></p>
+<p>Das Dashboard zeigt in zwei neuen Karten nun eine Übersicht über die geblockten Zugriffe auf Tracker, Werbung und Malware an. Für jedes Gerät sehen Sie dort die zeitliche Verteilung der geblockten Zugriffe, die Top 25 der geblockten Domains sowie die Gesamtzahl aller geblockten Zugriffe über alle Geräte im lokalen Netz.</p>
+<p><strong>Anonymisierungseinstellung im Dashboard</strong></p>
+<p>Eine weitere neue Dashboard-Karte ermöglicht es, die Anonymisierungs-Einstellungen für das aktuelle Gerät vorzunehmen: Sie können Ihre IP-Adresse durch die Verwendung des Tor-Netzwerks bzw. durch die Verbindung zu einem vorbereiteten VPN-Dienst tarnen. Oder, wenn die HTTPS-Unterstützung für das Gerät aktiviert ist, die Geräte-Tarnung einschalten.</p>
+<p><strong>Wechsel des aktiven Nutzers über das Dashboard [eBlocker Family]</strong></p>
+<p>Wenn Sie in Ihrem Heimnetz mehrere Benutzer mit unterschiedlichen Jugendschutz-Profilen eingerichtet haben, kann der auf einem Gerät aktive Nutzer nun auch über das Dashboard durch Eingabe der Benutzer-PIN gewechselt werden.</p>
+<p><strong>Verbesserter Assistent zum Ändern der Netzwerk-Einstellungen</strong></p>
+<p>Der Assistent zum Wechseln der Netzwerk-Einstellungen vom automatischen Modus (Plug &amp; Play) zu individuellen Einstellungen, oder in den Experten-Modus und zurück, wurde verbessert: Er bietet jetzt eine detaillierte Anleitung und erkennt mögliche Unstimmigkeiten in der Konfiguration des Heimnetzes (z.B. wenn der DHCP-Server des Routers noch aktiv ist).</p>
+</body>
+</html>

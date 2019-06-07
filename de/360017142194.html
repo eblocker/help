@@ -1,0 +1,113 @@
+<html>
+<meta charset="utf-8">
+<body>
+<p><a href="index.html">eBlocker Help</a> &gt; <a href="360000227154.html">Wissensdatenbank</a> &gt; <a href="360003201954.html">eBlocker Menü</a></p>
+<h1>HTTPS</h1>
+<p><span class="wysiwyg-color-red120">eBlocker Base ✕</span><span class="wysiwyg-color-green120"> / eBlocker Pro ✓ / eBlocker Family ✓</span></p>
+<p>Diese Seite ist weiter unterteilt in die folgenden Abschnitte:</p>
+<ul>
+<li>Status</li>
+<li>Zertifikat</li>
+<li>HTTPS Verbindungsfehler</li>
+<li>Vertrauenswürdige Apps</li>
+<li>Vertrauenswürdige Websites</li>
+<li>Manuelle Diagnose</li>
+</ul>
+<p><img src="../attachments/360017142194-DE-HTTPS-01.png" alt="DE-HTTPS-01.png"></p>
+<p><span class="wysiwyg-underline wysiwyg-color-red120"><strong>Wichtig:</strong></span></p>
+<p>Wenn Sie diese Funktion aktivieren, müssen Sie mit erweiterten Einstellungen Ihrer Geräte vertraut sein und ein Verschlüsselungs-Zertifikat auf den Geräten hinterlegen, um den Datenstrom durch den eBlocker analysieren zu lassen.</p>
+<p><span class="wysiwyg-underline"><strong>Vorwort:</strong></span></p>
+<p>SSL steht für Secure Sockets Layer und ist ein Protokoll, um die Kommunikation „Ende-zu-Ende“ zwischen zwei Kommunikationspartnern zu verschlüsseln. Manchmal wird Ihnen vielleicht auch die Abkürzung TLS begegnen (TLS steht für Transport Layer Security). Sie bezeichnet im Grunde das gleiche wie SSL. Wird das Standard-Webprotokoll HTTP mit Hilfe von SSL verschlüsselt, so wird es als HTTPS bezeichnet. Sie erkennen eine verschlüsselt geladene Seite daran, dass die URL mit https:// beginnt. Viele Browser zeigen in der Adresszeile zusätzlich ein grünes Schloss an.</p>
+<p>Viele Webseiten, insbesondere von Banken und Online-Shops sind heute mit SSL-Verschlüsselung geschützt. Dadurch können Sie sicher sein, dass Sie tatsächlich mit dem Anbieter kommunizieren dessen URL Sie aufgerufen haben und dass kein Dritter Ihre eingegebenen Daten verändern oder mitlesen kann. Allerdings verwenden nicht nur seriöse Shops und Banken SSL. Auch Tracking- und Werbeanbieter sammeln ihre Daten immer öfter über HTTPS/SSL. Ihre Profildaten werden dann zwar verschlüsselt zum Trackingserver geschickt, aber das hindert den Datensammler natürlich nicht daran, weiterhin ein detailliertes Profil von Ihnen zu erstellen.</p>
+<p>Sobald die HTTPS-Unterstützung im eBlocker aktiviert wird, generiert jeder eBlocker ein eindeutiges Geräte-Stammzertifikat und einen privaten Schlüssel. Dieses Zertifikat wird genutzt, um die Kommunikation zwischen Ihrem Gerät und dem eBlocker zu verschlüsseln, wenn der eBlocker eine mit SSL geschützte Webseite lädt.</p>
+<p>Sobald HTTPS aktiviert wurde, terminiert der eBlocker die verschlüsselte Verbindung, damit der Datenstrom analysiert werden kann. Der eBlocker ist damit das Ende der „Ende-zu-Ende Verschlüsselung“. Da der Browser bei HTTPS eine verschlüsselte Verbindung erwartet, verschlüsselt der eBlocker anschließend die Kommunikation zu Ihrem Endgerät. Dazu ist es notwendig einmalig das sogenannte Sicherheitszertifikat Ihres eBlockers erst in Ihrem Betriebssystem und dann gegebenenfalls in den Browsern mit einem eigenen Zertifikatsspeicher aufzunehmen. Dieses Zertifikat wird manchmal auch als Zertifikat für Zertifizierungsstellen, als Stammzertifikat oder als Root-Zertifikat bezeichnet.</p>
+<p>Wir haben weder Zugang zu Ihrem privaten Schlüssel noch zu Ihrem Gerät und haben alles dafür getan, um den eBlocker vor Hackern zu schützen – aber natürlich gibt es keine 100 prozentige Sicherheit.</p>
+<p>Wir bieten die HTTPS-Unterstützung als Option an. Sollten Sie sich unwohl damit fühlen, dass der eBlocker die HTTPS-Verbindung entschlüsselt, aktivieren Sie diese Option bitte nicht.</p>
+<p>Ohne die HTTPS-Unterstützung schützt Sie der eBlocker durch seine Domain Blocker.<br><a href="360008681633.html" target="_blank" rel="noopener">Lesen Sie hier gegebenenfalls den Unterschied zwischen Pattern (Muster) und Domain Blocker.</a></p>
+<h2><strong>Status</strong></h2>
+<p>Aktivieren Sie hier die HTTPS Funktion für Ihren eBlocker, indem Sie den <strong>Schalter</strong> nach rechts schieben.</p>
+<p><img src="../attachments/360017142194-DE-HTTPS-02.png" alt="DE-HTTPS-02.png"></p>
+<p>Bitte beachten Sie, dass das Zertifikat erst in Ihrem Betriebssystem und dann gegebenenfalls noch in Browsern mit eigenem Zertifikatsspeicher hinterlegt werden muss.</p>
+<p>Wenn Sie auf den Button <strong>HTTPS Assistent</strong> klicken, wird Sie ein Assistent bei dem Hinterlegen des eBlocker Zertifikats begleiten. Der Link Anleitungen führt Sie zu einem Beitrag, in dem wir Ihnen für die wichtigsten Betriebssysteme das Hinterlegen des eBlocker Zertifikats Schritt für Schritt beschrieben.</p>
+<h2><strong>Zertifikat</strong></h2>
+<p>Von hier aus können Sie auch das eBlocker Zertifikat mit Hilfe des HTTPS Assistenten hinterlegen. Der Link Anleitungen führt Sie ebenfalls zu einem Beitrag, in dem wir Ihnen für die wichtigsten Betriebssysteme das Hinterlegen des eBlocker Zertifikats Schritt für Schritt beschrieben.</p>
+<p><img src="../attachments/360017142194-DE-HTTPS-03.png" alt="DE-HTTPS-03.png"></p>
+<p>Hier können Sie einige Informationen zu Ihrem Zertifikat einsehen.</p>
+<p><img src="../attachments/360017142194-DE-HTTPS-04.png" alt="DE-HTTPS-04.png"></p>
+<p>Wenn Sie auf den Button <strong>Herunterladen</strong> klicken, können Sie das eBlocker Zertifikat auch auf Ihren Rechner speichern. Das kann notwendig sein, wenn Sie zum Beispiel eine App mit einem eigenen Zertifikatsspeicher benutzten (Beispiel: Der Mailclient Thunderbird).</p>
+<p>Das eBlocker Zertifikat wird vier Wochen vor dem Ablauf automatisch erneuert.</p>
+<p><img src="../attachments/360017142194-DE-HTTPS-05.png" alt="DE-HTTPS-05.png"></p>
+<p>Nach der Erneuerung muss das neue Zertifikat wieder auf allen Geräten aufgenommen werden!<br>Sie können das eBlocker Zertifikat auch jeder Zeit manuell erneuern, wenn Sie auf den Button<strong> Jetzt erneuern</strong> klicken.</p>
+<h2><strong>HTTPS Verbindungsfehler</strong></h2>
+<p>Hier können Sie den Datenstrom einzelner Anwendungen mit einem einfachen Werkzeug untersuchen und gegebenenfalls Ausnahmen erstellen, sofern eine App bzw. eine Webseite bei aktivierter HTTPS-Unterstützung nicht korrekt arbeitet.</p>
+<p><img src="../attachments/360017142194-DE-HTTPS-06.png" alt="DE-HTTPS-06.png"></p>
+<p>Die aufgezeichneten HTTPS Verbindungsfehler helfen Ihnen dabei festzustellen, welche Apps betroffen sind, bzw. welche Domains-/IP-Adressen als Ausnahmen für die jeweilige App definiert werden sollten.</p>
+<p>Der eBlocker kann Domains erkennen, welche einer schon vorhandenen vertrauenswürdigen App Ausnahme hinzugefügt werden kann. In der Aufzeichnung wir Ihnen auch angezeigt von welchem Gerät und zu welcher Zeit der Verbindungsfehler aufgezeichnet wurde.</p>
+<p><img src="../attachments/360017142194-DE-HTTPS-07.png" alt="DE-HTTPS-07.png"></p>
+<p>Mit einem Klick auf den Button <strong>Bearbeiten</strong> können Sie die Domain dieser App Ausnahme hinzufügen. Anschließen klicken Sie auf den Button <strong>App vertrauen</strong>, um Ihre Auswahl zu speichern.</p>
+<p>In der Liste der <strong>Vorgeschlagene Ausnahmen</strong> zeigt der eBlocker Verbindungsfehler an, welche keiner vorhandenen App Ausnahme zugeordnet werden konnten.</p>
+<p><img src="../attachments/360017142194-DE-HTTPS-08.png" alt="DE-HTTPS-08.png"></p>
+<p>Mit einem Klick auf den Button <strong>Bearbeiten</strong> können Sie die Domain auswählen, welche Sie speichern möchten.</p>
+<p>Es stehen Ihnen drei Optionen zum Speichern zur Verfügung:</p>
+<ul>
+<li>Neue App anlegen</li>
+<li>Zur App hinzufügen</li>
+<li>Zur Ausnahmeliste hinzufügen</li>
+</ul>
+<p><strong>Neue App anlegen</strong></p>
+<p>Mit dieser Option legen Sie eine neue App Ausnahme an.</p>
+<p><img src="../attachments/360017142194-DE-HTTPS-09.png" alt="DE-HTTPS-09.png"></p>
+<p>Vergeben Sie einen Namen für die App Ausnahme und geben Sie gegebenenfalls eine kurze Beschreibung ein.</p>
+<p>Die Ausgewählten Domains werden Ihnen hier noch einmal angezeigt.</p>
+<p>Mit einem Klick auf den Button <strong>Speichern</strong> hinterlegen Sie Ihre neue App Ausnahme. Diese finden Sie nun in der Übersicht Vertrauenswürdige Apps. Neu angelegte App Ausnahmen werden nach dem Anlegen automatisch aktiviert.</p>
+<p><strong>Zur App hinzufügen</strong></p>
+<p>Hier können Sie die ausgewählten Domains einer schon vorhandenen App Ausnahme hinzufügen.</p>
+<p><img src="../attachments/360017142194-DE-HTTPS-10.png" alt="DE-HTTPS-10.png"></p>
+<p>Wählen Sie eine schon vorhandene Apps Ausnahme aus und überprüfen Sie noch einmal die Domains. Wenn Sie nun auf den Button <strong>Speichern</strong> klicken, werden die hier angegebenen Domains automatisch der schon vorhandenen App Ausnahme hinzugefügt.</p>
+<p><strong>Zur Ausnahmeliste hinzufügen</strong></p>
+<p>Hier können Sie die gefunden Domains der Liste der vertrauenswürdigen Websites Hinzufügen.</p>
+<p><img src="../attachments/360017142194-DE-HTTPS-11.png" alt="DE-HTTPS-11.png"></p>
+<p>Vergebenem Sie hier einen Namen und überprüfen Sie noch einmal die Domains. Wenn Sie nun auf den Button <strong>Speichern</strong> klicken, werden die hier angegebenen Domains automatisch Liste der vertrauenswürdigen Websites hinzugefügt.</p>
+<p>Ganz unten auf der Seite finden Sie hier den Button <strong>Alle Aufzeichnungen löschen</strong>. Wenn Sie diesen Button anklicken, werden alle Aufzeichnungen gelöscht.</p>
+<h2><strong>Vertrauenswürdige Apps</strong></h2>
+<p>Hier sehen Sie eine Liste der schon vordefinierten vertrauenswürdigen Apps.</p>
+<p><img src="../attachments/360017142194-23-01de-trustedapps.png" alt="23-01de-trustedapps.png"></p>
+<p>Wenn Sie ein Problem mit einer App haben sollten, dann suchen Sie hier einmal nach den Namen der App. Vielleicht gibt es schon eine vordefinierte Ausnahme für diese App. Wenn ja, dann aktivieren Sie die Ausnahme indem Sie auf die Ausnahme klicken und mit dem Schalter die Ausnahme aktivieren.</p>
+<p>In der Liste sehen Sie den Namen der App, eine kurze Beschreibung, ein Auszug der erlaubten Domains/Ips und den Status der App. Der Status unterscheidet zwischen Vordefinierte App und Benutzerdefinierten App.</p>
+<p>Sie können in der Übersicht der vertrauenswürdigen Apps alle Ausnahmen einfach aktivieren, oder deaktivieren, indem Sie den Schalter vor der Ausnahme umstellen.</p>
+<p>Bitte beachten Sie, dass aktivierte Ausnahmelisten bedeuten, dass die entsprechenden Apps und Websites nicht durch den eBlocker geschützt werden und Ihre Daten an Dritte weiter gegeben werden könnten.</p>
+<p>Um eine neue App Ausnahme hinzuzufügen klicken Sie auf den Button <strong>App Hinzufügen</strong>.</p>
+<p><img src="../attachments/360017142194-DE-HTTPS-13.png" alt="DE-HTTPS-13.png"></p>
+<p>Vergeben Sie einen Namen und gegebenenfalls eine Beschreibung für die App.</p>
+<p>Nun können Sie pro Zeile eine Domain / IP für diese Ausnahmen eingeben.</p>
+<p>Wenn Sie auf den Button <strong>Speichern</strong> klicken wird diese Ausnahme in die Liste der Ausnahmen aufgenommen und automatisch für Sie aktiviert.</p>
+<p>Klicken Sie auf den Button <strong>Bearbeiten</strong>, um eine App Ausnahme aus der Liste zu löschen. Wählen Sie im Anschluss die betroffene App Ausnahme aus und klicken dann auf den Button<strong> App Löschen</strong> oder zurücksetzten.</p>
+<p>Nur vordefinierte App Ausnahmen können, sofern Sie diesen weitere Domains hinzugefügt haben, zurückgesetzt werden.</p>
+<p>Klicken Sie in der Liste der App Ausnahmen eine App Ausnahme an, um diese zu bearbeiten.</p>
+<p><img src="../attachments/360017142194-DE-HTTPS-14.png" alt="DE-HTTPS-14.png"></p>
+<p>Hier können Sie den Namen und die Beschreibung der App bearbeiten, in dem Sie auf den <strong>Stift</strong> klicken.</p>
+<p><img src="../attachments/360017142194-DE-HTTPS-15.png" alt="DE-HTTPS-15.png"></p>
+<p>Mit diesem <strong>Schalter</strong> aktivieren Sie die Ausnahmeliste. Der eBlocker wird dann die Kommunikation zu den angegebenen Domains / IPs nicht mehr kontrollieren.</p>
+<p><img src="../attachments/360017142194-DE-HTTPS-16.png" alt="DE-HTTPS-16.png"></p>
+<p>Klicken Sie auf den Button <strong>Neu</strong>, um eine Domain / IP zu dieser Liste hinzuzufügen.</p>
+<p>Klicken Sie auf den Button <strong>Bearbeiten</strong>, um eine Domain aus der Liste zu löschen. Wählen Sie im Anschluss die betroffene Domain aus und klicken dann auf den Button <strong>Domain/IP löschen</strong>.</p>
+<h2><strong>Vertrauenswürdige Websites</strong></h2>
+<p>Hier sehen Sie eine Liste der vertrauenswürdigen Websites.</p>
+<p><img src="../attachments/360017142194-DE-HTTPS-17.png" alt="DE-HTTPS-17.png"></p>
+<p>In dieser Liste sehen Sie als alle Domains, welche in den vertrauenswürdigen Apps Ausnahmen eingetragen wurden.</p>
+<p>Die Liste besteht aus den Namen, der Domain/IP, gegebenenfalls den Namen der App Ausnahme, und dem Status Benutzerdefinierte Domain/IP oder Von eBlocker festgelegte Domain.</p>
+<p>Falls einzelne Webseiten mit dem eBlocker nicht kompatibel sind, können Sie diese Webseiten vom Schutz durch den eBlocker ausnehmen, in dem Sie auf den Button <strong>Neue Websites</strong> klicken.</p>
+<p><img src="../attachments/360017142194-DE-HTTPS-18.png" alt="DE-HTTPS-18.png"></p>
+<p>Vergeben Sie einen Namen für die Ausnahme und geben Sie die Domains oder IPs ein. Nach dem Sie auf den Button <strong>Speichern</strong> geklickt haben wird diese Ausnahme in der Liste der Web Ausnahmen hinzugefügt.</p>
+<p>Klicken Sie auf den Button <strong>Bearbeiten</strong>, um eine Web Ausnahme aus der Liste zu löschen. Wählen Sie im Anschluss die betroffene Web Ausnahme aus und klicken dann auf den Button <strong>Website Löschen</strong>.</p>
+<p>Wichtig: Nur Benutzerdefinierte Domain/IP Ausnahmen können hier gelöscht werden.</p>
+<h2><strong>Manuelle Diagnose</strong></h2>
+<p>Mit der manuellen HTTPS-Diagnose ist es möglich noch weitere - zusätzlich zu den unter "HTTPS-Verbindungsfehler" gefundenen Fehlern - aufzuzeichnen und in die Liste der vertrauenswürdigen Apps aufzunehmen.</p>
+<p><img src="../attachments/360017142194-DE-HTTPS-19.png" alt="DE-HTTPS-19.png"></p>
+<p>Wählen Sie mittels der Listenschaltflächen das Gerät aus Ihrem Netzwerk bei dem die Fehler auftreten, die maximale Zeitdauer der Aufzeichnung und die maximale Größe des Protokolls. Standard: 5 Minuten, 100 MB.</p>
+<p>Nun verwenden Sie auf dem ausgewählten Gerät die App bei deren Nutzung Fehler auftreten. Nach automatischem oder manuellem Stopp der Aufzeichnung erstellt der eBlocker für Sie eine Liste der aufgerufenen Domainnamen und der verbundenen IP Adressen, des verwendeten Protokolls und der eBlocker Regeln. In der letzten Spalte können Sie der vom eBlocker ausgegebenen empfohlenen Regel zustimmen oder widersprechen.</p>
+<p>Die Tabellenzeilen der analysierten Verbindungen können durch Anklicken für jede aufgerufene Domain einzeln angepasst werden.</p>
+<p>Die aufgezeichneten Apps können Sie testen und einer neuen App Definition für die Liste der vertrauenswürdigen Apps hinzufügen.</p>
+<p><a href="360004553714.html" target="_blank" rel="noopener">Hier finden Sie ein praktisches Beispiel...</a></p>
+</body>
+</html>

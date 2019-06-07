@@ -1,0 +1,25 @@
+<html>
+<meta charset="utf-8">
+<body>
+<p><a href="index.html">eBlocker Help</a> &gt; <a href="360000227134.html">FAQs</a> &gt; <a href="360000515213.html">Netzwerk</a></p>
+<h1>Wie kann ich den DNS Cache leeren?</h1>
+<p>Wenn Sie eine Webseite aufrufen (Beispiel: www.eblocker.com), dann wird die Webseite von einem Domain Name Server im Internet übersetzt in eine IP-Adresse (138.68.124.96 ). Diese Information wird dann meist von Ihrem Gerät in einem DNS Cache zwischen gespeichert, damit ein erneuter Aufruf von www.eblocker.com schneller bearbeitet werden kann.</p>
+<p>Wenn sich nun die IP-Adresse einer Webseite ändert, so kann es zu Problemen kommen. Der DNS Cache hat diese neue Information noch nicht und wird Sie zur alten IP-Adresse weiterleiten. In solchen Situationen hilft es meist einmal den DNS Cache zu leeren.</p>
+<p><strong>eBlocker</strong></p>
+<p>Öffnen Sie die eBlocker Einstellungen und gehen Sie in das Menü "DNS-Firewall". Klicken Sie unten auf der Seite auf den Button "Cache leeren", um den eBlocker DNS Cache zu leeren.</p>
+<p><strong>Windows</strong></p>
+<p>Öffnen Sie die Eingabeaufforderung (Command Promt). Sie finden die Eingabeaufforderung auch wenn Sie nach "cmd" suchen.<br>Geben in der Eingabeaufforderung den Befehl "ipconfig /flushdns" ein und der DNS-Cache von Windows wird gelöscht.</p>
+<p><strong>macOS 10.12.0 und höher</strong></p>
+<p>Öffnen Sie das Terminal. Sie finden das Terminal auch, wenn Sie in der Suche "terminal" eingeben.<br>Geben in im Terminal den Befehl <em>"sudo killall -HUP mDNSResponder"</em> ein und der DNS-Cache von macOS wird gelöscht.</p>
+<p><strong>iOS</strong></p>
+<p>Auf einem iPad, oder iPhone, reicht es meist einmal den Flugmodus zu aktivieren, um den DNS Cache zu löschen. Ein anderer Weg wäre das Gerät einmal neu zu starten.</p>
+<p><strong>Android</strong></p>
+<p>Auf einem Android Gerät kann man den DNS Cache löschen, in dem man das Gerät neu startet.</p>
+<p><strong>Linux (Ubuntu)</strong></p>
+<p>Um DNS-Caching-Services in Linux-Distributionen wie Ubuntu zu nutzen und den Cache zu leeren, benötigen Sie Administrator-Rechte.<br>Öffnen Sie ein Terminal und geben den Befehl <em>"sudo /etc/init.d/dns-clean restart"</em> ein und der DNS-Cache von Ubuntu wird gelöscht.</p>
+<p><strong>Browser Chrome / Chromium</strong></p>
+<p>Öffnen Sie den Browser und geben Sie in der Adresszeile <em>"chrome://net-internals/#dns"</em> ein. Klicken Sie dann aufn den Button "Clear host cache" um den DNS Cache vom Browser zu löschen.</p>
+<p><strong>Browser Firefox</strong></p>
+<p>Öffnen Sie den Browser und geben Sie in der Adresszeile <em>"about:config"</em> ein und suchen Sie nach <em>"network.dnsCacheExpiration"</em>. Klicken Sie den Wert (60) doppelt an und setzen Ihn auf 0. Mit dem Klick auf "OK" wird dann der Browser Cache geleert. Danach können Sie den Wert wieder auf "60" setzten.</p>
+</body>
+</html>

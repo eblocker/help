@@ -1,0 +1,70 @@
+<html>
+<meta charset="utf-8">
+<body>
+<p><a href="index.html">eBlocker Help</a> &gt; <a href="360000222273.html">Release Notes</a> &gt; <a href="360000515633.html">Version 1.x</a></p>
+<h1>Release Notes 1.14</h1>
+<p><strong>eBlockerOS 1.14.14</strong></p>
+<p><strong>Bug Fix</strong></p>
+<p>In some cases an additional reboot of the eBlockler could be necessary to establish full functionality. <br>This bug has been fixed.</p>
+<hr>
+<p><strong>eBlockerOS 1.14.13</strong></p>
+<p><strong>Bug Fix</strong></p>
+<p>A bug has been fixed to improve the stability of the DNS server.</p>
+<hr>
+<p><strong>eBlockerOS 1.14.11</strong></p>
+<p><strong>Bug Fixes &amp; Improvements</strong></p>
+<p><strong>Stability</strong></p>
+<p>After many SSL communication failures it could occur that eBlocker did not allow any more SSL connections or that it became unresponsive. This problem was fixed.</p>
+<p>SSL Communication Failures</p>
+<p>The occurrence of certain SSL communication failures could lead to an error so that the list of failures could not be displayed. This issue was fixed.</p>
+<p><strong>eBlocker Mobile</strong></p>
+<p>eBlocker Mobile can now be activated in automatic network mode.</p>
+<p><strong>DNS</strong></p>
+<p>A problem was fixed that occurred when a DNS server was reachable but did not accept any DNS queries. In this case the next DNS server is now queried.</p>
+<p><strong>Processing of URLs</strong></p>
+<p>eBlocker can now process longer URLs and URLs that do not conform to the standard. This avoids error messages on some web sites.</p>
+<hr>
+<p><strong>eBlockerOS 1.14</strong></p>
+<p><strong>New Features</strong></p>
+<p><strong>Restructured SSL settings [eBlocker Pro, eBlocker Family]</strong></p>
+<p>The SSL settings have been restructured and merged with the Apps settings to improve usability and overview: Details about the eBlocker certificate have been moved to their own tab named CERTIFICATE; the SSL exemption list for websites has been moved to its own tab TRUSTED WEBSITES and the whole Apps configuration page of exception lists for specific apps has been moved to the tab TRUSTED APPS. So all SSL related settings can now be maintained on the same page in different tabs.</p>
+<p><strong>Recording and automated analysis of SSL communication failures[eBlocker Pro, eBlocker Family]</strong></p>
+<p>Sometimes, apps or websites do not function correctly, when the eBlocker monitors their encrypted communication. In order to detect and solve problems related to SSL communication failures, eBlocker can now record and analyze these failures. If available, eBlocker will automatically suggest related apps to be marked as trusted. Or you can use the recorded data to define your own trusted app configuration.</p>
+<p><strong>Analysis and display of speed and reliability of external DNS servers</strong></p>
+<p>eBlocker will now monitor and analyze the speed and reliability external DNS servers. It will display the results on the DNS settings page and provide a simple classification in good, medium and bad. You should consider to remove DNS servers marked as “bad”, as they can have a severe impact on your effective Internet speed.</p>
+<p><strong>Redesign of eBlocker ControlBar for mobile devices</strong></p>
+<p>The eBlocker ControlBar now automatically adapts to any screen size. The features of the ControlBar can now also be used without restrictions on mobile devices such as smartphones and tablets.<br>In addition, the look &amp; feel of the eBlocker ControlBar has been improved and made consistent for better usability.</p>
+<p><strong>Factory Reset via eBlocker Settings</strong></p>
+<p>It’s now possible to trigger a full factory reset via the System page in eBlocker Settings. Remember: All configuration settings and the license activation will be deleted and have to be re-done. If the eBlocker Settings should not be accessible anymore, it is still possible to trigger the factory reset with the help of an USB thumb drive.</p>
+<p><strong>eBlocker icon only inserted into pages loaded by standard web browsers</strong></p>
+<p>The eBlocker icon has been inserted into all web pages to indicate that the page has been monitored and secured by your eBlocker and to make the eBlocker ControlBar available on this page. This is still the case, if the page is loaded with a standard web browser like Microsoft Edge, Firefox, Chrome or Safari. However, the inserted icon can sometimes lead to problems, if the page is loaded with another app (not a browser), that does not offer the possibility to click on the icon. So the icon is by default not inserted anymore, when the page is loaded by any other app. Please note: The page is still monitored and secured as before, only the icon is not visible anymore. You can restore the old behavior in the eBlocker Settings on the device page in the SHOW ICON tab on the device details for each device.</p>
+<p><strong>eBlocker icon indicates, if a Tor or VPN connection is active</strong></p>
+<p>The eBlocker icon indicates now, if the page has been loaded through an active Tor or VPN connection by displaying badges with the label “Tor” or “VPN” respectively.</p>
+<p><strong>Automatic insertion of Do-not-track header [eBlocker Pro, eBlocker Family]</strong></p>
+<p>The eBlocker will now automatically insert a Do-not-track header into all outgoing requests. This header serves as indication to the receiving website that the user does not want to be tracked. Unfortunately, this header is not legally binding, so many websites do ignore it.</p>
+<p><strong>Loading speed improved and support for Brotli compression</strong></p>
+<p>The eBlocker will now refrain from re-compressing monitored web pages, when they are sent to the browser. In an internal network, the speed advantage from the reduced bandwidth due to compression is much smaller than the speed penalty for the additional compression and decompression steps. In addition, the eBlocker supports now Brotli compression for webpages.</p>
+<p>eBlocker Pro and eBlocker Family only: By default, the re-compression is still done, if the page is loaded by a remote device that is connected via eBlocker Mobile. This option can globally be set in eBlocker Settings on the Advanced page.</p>
+<p><strong>Frequency of automatic device detection can be adjusted</strong></p>
+<p>Normally, the eBlocker will scan the local network frequently to find new devices that should also be monitored and protected. In very rare cases, this can lead to problems with the Wifi router. It is now possible to reduce the scan frequency or to switch off automatic scans completely. Please note that without these scans, new devices might not be detected automatically and the eBlocker will not monitor and protect these devices. You can change the scan frequency or trigger a single manual scan from the devices page in eBlocker Settings.</p>
+<p><strong>Use normal DNS settings, even when connected through a VPN</strong></p>
+<p>When connected though a VPN, you would normally want to use the DNS settings of your VPN provider to avoid IP leakage by DNS requests that bypass the VPN connection. This is how eBlocker is doing it by default. But sometimes, you still might want to use your local DNS settings, even when connected to a VPN. This can now be configured individually per VPN profile.</p>
+<p><strong>eBlocker Dashboard Pause Function</strong></p>
+<p>It is now not only possible to increase the pausing time by five minutes, but also to decrease the time by five minutes, if necessary.</p>
+<p><strong>Bug Fixes &amp; Improvements</strong></p>
+<p><strong>DNS Server returns unambiguous response to all internal devices</strong></p>
+<p>Large external websites can often be accessed over many different IP addresses. This can sometimes lead to problems, when the eBlocker uses a different IP address for the same target website than the monitored device. The DNS server now takes care that all internal devices will use the same IP address for the same external website.</p>
+<p><strong>Consistent look &amp; feel for eBlocker reboot, shutdown and update processes</strong></p>
+<p>When eBlocker is rebooting or shutting down, whether triggered explicitly or as part of the update process, it will guide you now with a consistent user interface.</p>
+<p><strong>Support for multiple IP addresses per device in the local network</strong></p>
+<p>Sometimes, a device in a local network can have two or more IP addresses for the same network interface. This could lead to problems, when the eBlocker was monitoring this device. This has been fixed: All devices in your local network can now have multiple IP addresses.</p>
+<p><strong>Avoid immediate automatic update</strong></p>
+<p>When automatic updates had been switched back on, eBlocker would sometimes execute this update immediately and not wait for the next time window for automatic updates (typically 3am-4am). This has been fixed: Automatic updates will now wait for the next configured time window.</p>
+<p><strong>VPN configuration issue solved</strong></p>
+<p>Sometimes, OpenVPN configuration files from external sources, e.g. your VPN provider, contained correct configuration options that were erroneously rejected by eBlocker. This has been fixed: These configuration files can now be used without any change.</p>
+<p><strong>General</strong></p>
+<p>Additional bugs have been fixed and further improvements to the user interface and the core processes have been implemented to increase the performance and stability.</p>
+<p>Please note that an update to the current eBlockeOS version 1.14 may take up to 10 minutes.</p>
+<p>Please clear your browser cache after the update.</p>
+</body>
+</html>

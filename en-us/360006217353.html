@@ -1,0 +1,58 @@
+<html>
+<meta charset="utf-8">
+<body>
+<p><a href="index.html">eBlocker Help</a> &gt; <a href="360000227154.html">Knowledge Base</a> &gt; <a href="360000516773.html">Use cases</a></p>
+<h1>Disable IPv6 for your internal network</h1>
+<p>We recommend to disable the IPv6 protocol for the internal network (home network), as eBlocker is not IPv6-enabled. However, this is not possible with some routers. If you have one of the routers that include IPv6 you can disable the protocol on individual devices (but this is rarely possible on mobile devices such as smartphones and tablets).</p>
+<p><strong>IPv6 deactivation under macOS:</strong></p>
+<ul>
+<li>System Preferences &gt; Network &gt; Active Connection &gt; Orange Field: Other Options &gt; TCP/IP Tab</li>
+<li>"Configure IPv6" &gt; Select "Link-Local only"</li>
+</ul>
+<p>Or simply deactivate or activate IPv6 in the terminal with one command:</p>
+<ul>
+<li>For a normal Ethernet (e.g. iMac): networksetup -setv6off Ethernet</li>
+<li>For the WLAN: networksetup -setv6off Wi-Fi</li>
+<li>For example a USB Ethernet adapter: networksetup -setv6off "USB Ethernet".</li>
+</ul>
+<p>To re-enable IPv6, type one of the following commands:</p>
+<ul>
+<li>networksetup -setv6automatic Ethernet</li>
+<li>networksetup -setv6automatic Wi-Fi</li>
+<li>networksetup -setv6automatic "USB Ethernet"</li>
+</ul>
+<p><strong>IPv6 deactivation under Windows:</strong></p>
+<p>Press Windows + R to open the Execute dialog.</p>
+<ul>
+<li>Enter ncpa.cpl and press Enter. The network connections with the individual network adapters open</li>
+<li>Right-click on your network card and select "Properties"</li>
+<li>Scroll down slightly and uncheck the entry "Internet Protocol, Version 6 (TCP/IPv6)".</li>
+<li>Confirm the process with OK</li>
+</ul>
+<p>Alternatively, see the following Microsoft Support page to disable IPv6 for each version of Windows:</p>
+<p>https://support.microsoft.com/de-de/help/929852/guidance-for-configuring-ipv6-in-windows-for-advanced-users</p>
+<p><strong>IPv6 deactivating on Linux:</strong></p>
+<p>On most Linux operating systems you can easily disable IPv6 in the network settings. For example:</p>
+<p>Settings &gt; Network &gt; Edit Current Connection &gt; IPv6 Tab &gt; Disable</p>
+<p>If necessary, search the Internet for instructions for your Linux operating system.</p>
+<p><strong>IPv6 disabling in Firefox browser (desktop version)</strong></p>
+<p>The Firefox browser is configured to first request an IPv6 address (the so-called AAAA record) from the DNS server. If this request is unsuccessful, the system searches for an IPv4 address (the so-called A record).</p>
+<p>This can easily be deactivated.</p>
+<ul>
+<li>Type in the Firefox address bar “about:config”</li>
+<li>Search for the variable network.dns.disableIPv6 via the filter</li>
+<li>Double-click to change the value from false to true</li>
+</ul>
+<p> </p>
+<p><strong>IPv6 deactivation under iOS:</strong></p>
+<ul>
+<li>Settings</li>
+<li>Wi-Fi</li>
+<li>Click on the "i" on the right of the Wi-Fi</li>
+<li>Scroll down to DNS</li>
+<li>Click on the field under DNS ("Configure DNS")</li>
+<li>Change settings to "Manual"</li>
+<li>Remove the IPv6 address (pattern of an IPv6 address: f80::e228:6aef:fe8b:cc59)</li>
+</ul>
+</body>
+</html>

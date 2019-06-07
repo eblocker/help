@@ -1,0 +1,90 @@
+<html>
+<meta charset="utf-8">
+<body>
+<p><a href="index.html">eBlocker Help</a> &gt; <a href="360000222273.html">Release Notes</a> &gt; <a href="360001752594.html">Version 2.x</a></p>
+<h1> Release Notes 2.2</h1>
+<p><strong><span class="wysiwyg-font-size-large">eBlockerOS 2.2.20</span></strong></p>
+<p><strong>Bugfixes</strong></p>
+<p>In rare cases it could occur that the eBlocker would not be fully operational, after the WiFi router has been changed. The eBlocker could then only be restarted by executing a factory reset. This problem has been fixed: Even after changing the WiFi router, the eBlocker will in all cases be fully operational.</p>
+<hr>
+<p> <strong><span class="wysiwyg-font-size-large">eBlockerOS 2.2.19</span></strong></p>
+<p><strong>Bugfixes</strong></p>
+<p>Elimination of bugs related to the start and stop of VPN connections. These bugs had however no direct impact on the functioning of the VPN connection.</p>
+<p>The connection test for a VPN cannot be executed anymore, while there is an active connection into this VPN. Reason is that the test could impact the active connection.</p>
+<p>Unneeded error messages in the context of blocked requests (e.g. trackers or ads), which have been accessed via HTTPS, will now be avoided.</p>
+<p>In very rare cases, the network confguration could temporarily be inaccurate after a reboot. This error has been fixed.</p>
+<p>Elimination of a problem with the daily update process: In rare cases, the update process could trigger a problem that could then only be fixed by rebooting the eBlocker.</p>
+<hr>
+<p><strong><span class="wysiwyg-font-size-large">eBlockerOS 2.2.17</span></strong></p>
+<p><strong>Bugfixes</strong></p>
+<p>In rare cases, the eBlocker could lose the connection to an external time server, when the network mode was switched from automatic to individual settings. Because of this, the internal clock of the eBlocker might increasingly lost time, which could then have caused subsequent errors. This bug has been fixed.</p>
+<p>In same cases, when using Tor via eBlocker Mobile, only HTTP traffic was routed through the Tor network.<br>This bug has been fixed: Even when using eBlocker Mobile, the complete traffic will<br>be routed through the Tor network, if Tor is activated for a device.</p>
+<p>When using Tor, DNS requests would not have been routed through the Tor network, if the eBlocker DNS firewall was switched off. This bug has been fixed: If Tor is activated for a device, all DNS requests of that device will be routed through Tor, even if the DNS firewall is switched off.</p>
+<p>In same cases, devices connected via eBlocker Mobile could not resolve the URL "eBlocker.box". A reboot was necessary to make this URL available. This bug has been fixed: After activation of eBlocker Mobile, the URL "eBlocker.box" is now immediately available also for all mobile devices.</p>
+<p>When updating a very old eBlocker OS version directly to the latest version eOS 2.2, the new, active monitoring of VPN connection would not work due to a missing software package. This problem has been fixed and<br>the missing package is now always installed.</p>
+<p><strong>Improvements</strong></p>
+<p>The setup wizard for eBlocker Mobile contains now clear instructions to configure the port forwarding for UDP.</p>
+<p>An important log file has been added to the diagnosis report.</p>
+<p> </p>
+<hr>
+<p><strong><span class="wysiwyg-font-size-large">eBlockerOS 2.2.15</span></strong></p>
+<p><strong>Important Bugfix</strong></p>
+<p>A bug in the logging system of the eBlocker could in rare cases damage the eBlocker's directory structure, caused by an unclean shutdown. If that happend, the eBlocker would not be able to start again. This bug has been fixed and cannot occur anymore. However, we strongly recommend to always use eBlocker settings to initiate a clean shutdown of the eBlocker and never just remove the power supply.</p>
+<p>A repair script has been prepaired for affected customers that can be requested from eBlocker support at any time (support@eBlocker.com).</p>
+<hr>
+<p> <strong><span class="wysiwyg-font-size-large">eBlockerOS 2.2.14</span></strong></p>
+<p><strong>New Features and Improvements</strong></p>
+<p><strong>eBlocker Mobile</strong></p>
+<p>A new assistant (wizard) helps with the setup of OpenVPN on different mobile devices.</p>
+<p>It is now possible to define for each mobile device, if it may access other devices in the local network, while connected via eBlocker Mobile.</p>
+<p>The devices overview indicates now, if a device is connected via eBlocker Mobile or not, or if it may connect at all.</p>
+<p><strong>VPN</strong></p>
+<p>A new option allows an active monitoring of the VPN connection with automatic reconnection. For some VPN providers, active monitoring is necessary to gain an enduring, stable connection.</p>
+<p>The VPN setup form prevents the browser now from auto-filling the password field.</p>
+<p>In case there are connection failures while setting up or activating a VPN connection, these errors will now be shown with additional context information.</p>
+<p><strong>HTTPS Support</strong></p>
+<p>A new assistant (wizard) helps with the installation of the eBlocker certificate into Windows, macOS, iOS and Android and into different browser environments.</p>
+<p>The file name of the downloaded eBlocker certificate is now more descriptive and allows to easily recognize and retrieve the file.</p>
+<p><strong>Parental Controls</strong></p>
+<p>The blacklist for “illegal filesharing sites” has been extracted from the general list “inappropriate content” and is now available as independent black list.</p>
+<p>If the Parental Controls access time restrictions cut the internet access for a device, any running streams (e.g. movies) will also be interrupted promptly, latest as soon as the the already buffered content has been played.</p>
+<p><strong>Network Settings</strong></p>
+<p>In expert mode, the administrator can now select the default DHCP lease time.</p>
+<p><strong>Tracker and Ad Blocker</strong></p>
+<p>The blocker page for blocked domains provides now the option to temporarily pause the eBlocker, so that it is possible to reach the original target site if necessary. Keep in mind that it might take a few minutes, until the pausing has an effect, due to local DNS caches of the browser or the operating system.</p>
+<p>The blocker page has been completely refurbished and became a whole new layout.</p>
+<p><strong>eBlocker Settings</strong></p>
+<p>The rendering of tables on very small screens (smartphones) has been improved.</p>
+<p>Devices that are currently online can no longer be "deleted" – they would anyway reappear in the list after a short time. Resetting to default settings, however, is still possible for all devices at any time via the details view.</p>
+<p>The eBlocker settings now always show clearly, while a process is still running in the background and the user has to wait a moment before the next setting can be made.</p>
+<p>The navigation menu has been improved and optimized for mobile devices.</p>
+<p><strong>eBlocker Dashboard</strong></p>
+<p>If the dashboard is not being used or is running in a hidden tab, it will automatically be switched off after a while and restart automatically, when it is brought forward or reused. (The previously displayed dialog box is not shown anymore.)</p>
+<p>The pause time can now be set to a maximum of 10 hours.</p>
+<p>Improved drag &amp; drop of dashboard cards. Especially attaching a card to a short column is now more reliable.</p>
+<p>The navigation menu has been improved and optimized for mobile devices. In particular, you can quickly switch to the eBlocker settings at any time by clicking on the gearwheel icon in the upper right corner.</p>
+<p>The tooltips are now easier to read due to a larger font and a stronger contrast.</p>
+<p><strong>Other improvements</strong></p>
+<p>Internal network and protocol libraries have been updated for further performance and stability improvements.</p>
+<p>The eBlocker settings are now available on port 80 shortly after the restart, not only on port 3000. Until now, port 80 was only available after start-up was complete.</p>
+<p>The domain www.eblocker.box is now also redirected to the dashboard (not only eblocker.box).</p>
+<p>In rare cases, unplanned disconnection of power from the eBlocker may damage single files. The self-repair mechanisms have been improved to make this even less likely. However, we still strongly recommend that you shut down the eBlocker in an ordered manner using the settings before disconnecting the power supply!</p>
+<p>Optimization of the loading time of the eBlocker applications (Settings, Dashboard, ControlBar etc.) as well as optimization of the data transfer when using pattern blockers and extended blockers.</p>
+<p>Extension of the Diagnostic Report with important status information, as well as removal of unnecessary or misleading messages from the log files. In addition, the maximum size of all log files is limited to prevent memory overflow.</p>
+<p><strong>Bug fixes</strong></p>
+<p>A problem in network expert mode was fixed: This problem could have cause problems with the DHCP server if the netmask of the local network changed.</p>
+<p>A problem in network expert mode was fixed: The DNS Firewall configuration was not always displayed consistently and seemed to change itself in certain configurations.</p>
+<p>A problem with manually created, trusted HTTPS Web sites has been fixed: In some cases, these entries could not be deleted again.</p>
+<p>A problem with the DNS Firewall has been fixed: Some routers publish the invalid address "0.0.0.0" as a secondary DNS server. This address is now ignored.</p>
+<p>A problem related to devices with invalid subnet addresses has been fixed: When such a device is rediscovered, it is now ignored and no longer displayed. Devices already in the list remain in the list.</p>
+<p>A problem related to dynamic IP addresses in the local network has been fixed: In rare cases, an error occurred when the eBlocker received a new IP Address from the DHCP Server that was previously assigned to another device.</p>
+<p>A problem with reloading the eBlocker settings immediately after a reboot was fixed: Sometimes it was necessary to reload the page to display the settings correctly.</p>
+<p>A problem with eBlocker Mobile on AMD platforms has been fixed.</p>
+<p>A problem with eBlocker Mobile on Raspberry Pi B3+ platforms has been fixed.</p>
+<p>A display problem related to parental controls profiles has been fixed.</p>
+<p>Minor inconsistencies in the user interface have been fixed.</p>
+<p>A rare problem when starting the eBlocker has been fixed.</p>
+<p>A rare problem with the creation of the diagnostic report has been fixed.</p>
+<p> </p>
+</body>
+</html>

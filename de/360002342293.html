@@ -1,0 +1,37 @@
+<html>
+<meta charset="utf-8">
+<body>
+<p><a href="index.html">eBlocker Help</a> &gt; <a href="360000222273.html">Release Notes</a> &gt; <a href="360000523174.html">Version 0.x</a></p>
+<h1>Release Notes 0.8.9-2</h1>
+<p><span style="font-size: 20px;">Neue Funktionen</span></p>
+<p> </p>
+<p><span style="font-size: 18px;"><span style="font-size: 16px;"><strong>Advanced Anonymization (verbesserte Anonymisierung)</strong></span></span></p>
+<p>Mit diesem Release wurde die <strong>"Anonymization" Einstellungsseite in den Settings hinzugefügt</strong>, auf der folgende neue Funktionen zur Verfügung stehen:</p>
+<p><strong>Selektierbare Tor Exit Länder</strong></p>
+<p>Die Länder für die IP-Anonymisierung (Tor Exit Nodes) können jetzt frei gewählt werden. Es können beliebig viele Länder ausgewählt werden, und es wird zufällig ein Tor Exit Node in einem dieser Länder gewählt. </p>
+<p> </p>
+<p><strong>Neue experimentelle Funktionen:</strong></p>
+<p><strong>WebRTC Anti IP-Adressen Leckage</strong></p>
+<p>Hintergrund: WebRTC ermöglicht Echtzeit-Kommunikation durch Client zu Client (P2P) Kommunikation. WebRTC wird beispielsweise für IP-Telefonie und Chat über den Browser verwendet. Beim Verbindungsaufbau über WebRTC kann nicht nur Ihre vom Provider vergebene IP-Adresse bekannt werden, sondern auch Ihre lokale IP Adresse im LAN.</p>
+<p>Wenn Sie die WebRTC Option aktivieren wird das Protokoll abgeschaltet und die IP-Adresse kann nicht mehr abgegriffen werden.</p>
+<p> </p>
+<p><strong>Entfernung des HTTP Referer</strong></p>
+<p>Hintergrund: Im HTTP Protokoll wird standardmäßig der sogenannte Referer an die aufgerufene Website gesendet. Der Referer ist die URL, die Sie auf die aktuelle Webseite verwiesen hat (z.B. über einen Link-Klick). Die aktuelle Website kann so einen Teil Ihres Surfverhaltens analysieren. Einige Websites benötigen jedoch den Referer für die Funktionsfähigkeit. Das Einschalten dieser Option kann zu Fehlern auf Webseiten führen.</p>
+<p>Sowohl WebRTC Blockierung als auch HTTP Referer Entfernung sind standardmäßig abgeschaltet.</p>
+<p><span style="font-size: 20px;">Bugfixes und Verbesserungen</span></p>
+<ul>
+<li>Ein Problem beim Update der Blockierungs-Listen auf Boards mit nur 512MB RAM (Raspberry Pi B+) wurde behoben</li>
+</ul>
+<ul>
+<li>Der Schalter zum Aktivieren / Deaktivieren der automatischen Updates repräsentiert wieder den richtigen Zustand der automatischen Updatefunktion.</li>
+<li>Der eBlocker startet nun auch ohne zugeordneter DHCP IPv4 Adresse (im automatischen Modus) und auch ohne, dass ein Gateway gefunden wurde. Somit sollten die eBlocker Einstellungsseiten immer unter folgender Adresse erreichbar sein: <a href="http://169.254.94.109:3000/">http://169.254.94.109:3000/</a>
+</li>
+<li>Das Caching der Einstellungsseiten und der Controlbar des eBlockers wurde verbessert, wodurch schnellere Ladezeiten dieser Elemente ermöglicht werden.</li>
+</ul>
+<p><span style="font-size: 18px;"><strong>Sicherheitsupdates</strong></span></p>
+<ul>
+<li>Eine Sicherheitslücke im glibc6 Paket, wurde durch ein Update auf eine neuere Version behoben (CVE-2015-7547)</li>
+</ul>
+<div class="clear"> </div>
+</body>
+</html>

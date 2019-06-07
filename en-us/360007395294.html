@@ -1,0 +1,103 @@
+<html>
+<meta charset="utf-8">
+<body>
+<p><a href="index.html">eBlocker Help</a> &gt; <a href="360000227134.html">FAQs</a> &gt; <a href="360000522814.html">Mobile function</a></p>
+<h1>How do I set up port forwarding on the router?</h1>
+<p>To set up port forwarding, you must be logged into the router's user interface. Some routers also require the "extended view" to enter port forwarding.</p>
+<p>In the following we have described how to create a port forwarding for the most common routers. Please note that the description may vary slightly. In this case, read the instructions of your router or check the FAQs of the router manufacturer.</p>
+<p><strong>Fritzbox:</strong></p>
+<ul>
+<li>Select „Erweiterte Ansicht“</li>
+<li>Menu Internet &gt; Shares &gt; tab "Portfreigaben"</li>
+<li>Click on the button „Gerät für Freigaben hinzufügen“</li>
+<li>Select eBlocker</li>
+<li>Click on the button „Neue Freigabe“</li>
+<li>Click on port sharing</li>
+<li>Select „Andere Anwendung“ in the „Anwendung“ tab</li>
+<li>Choose a name (for example: eBlocker Mobile)</li>
+<li>Protocol = UDP</li>
+<li>Port to device = 1194</li>
+<li>External port required = from 1194 to 1194</li>
+<li>Click on „Freigabe aktivieren“</li>
+<li>and click on „OK“</li>
+</ul>
+<p><br><strong>TP link:</strong></p>
+<ul>
+<li>Menu Forwarding &gt; Virtual Servers</li>
+<li>Button „Add New... “</li>
+<li>Service port = 1194</li>
+<li>Internal Port = 1194</li>
+<li>IP Address = the IP address of your eBlocker</li>
+<li>Protocol = All</li>
+<li>Status = Enabled</li>
+<li>Click the „Save“ button</li>
+</ul>
+<p><strong>TP link (alternative version):</strong></p>
+<ul>
+<li>Advanced menu &gt; NAT Forwarding &gt; Port-Triggering</li>
+<li>Button „(+) Add“</li>
+<li>Applikation = freely assigned (for example: eBlocker Mobile)</li>
+<li>Triggering Port = 1194</li>
+<li>Triggering Protokoll = UDP</li>
+<li>External Port = 1194</li>
+<li>External Protokoll = UDP</li>
+<li>Enable ths entry = (set checkmark)</li>
+<li>Click on the „OK“ button</li>
+</ul>
+<p> </p>
+<p><strong>Netgear:</strong></p>
+<ul>
+<li>Select the "Advanced" tab</li>
+<li>Menu Advanced Setup &gt; Port Forwarding/Port Triggering &gt; click on the „Add Custom Service“ Button</li>
+<li>Assign service name freely (for example: eBlocker Mobile)</li>
+<li>Protocol = UDP</li>
+<li>External starting port = 1194</li>
+<li>External Ending Port = 1194</li>
+<li>Check „use the same portrange for the internet port“</li>
+<li>eBlocker Enter IP address or select the eBlocker from the list of devices</li>
+<li>Click on the „Apply“ button</li>
+</ul>
+<p><br><strong>D-Link:</strong></p>
+<ul>
+<li>Select the „Advanced“ tab</li>
+<li>Select „Virtual Servers“ from the menu</li>
+<li>Activate the first unused virtual server</li>
+<li>Now assign a name (for example: eBlocker Mobile)</li>
+<li>Public= 1194 to 1194</li>
+<li>Protocol = UDP</li>
+<li>Enter the IP address of your eBlocker at „Virtual Servers“</li>
+<li>Private = 1194 to 1194</li>
+<li>Click on the „Save settings“ button</li>
+</ul>
+<p><strong>Apple Airport:</strong></p>
+<ul>
+<li>Start the macOS Airport Utility</li>
+<li>Select the tab "Network"</li>
+<li>Click the "+" button at "Port Settings"</li>
+<li>Add a name like "eBlocker Mobile" in the filed "Description"</li>
+<li>Use Public TCP and UCP port 1194</li>
+<li>Input your eBlockers IP-Address in the "Private IP Address" field</li>
+<li>Use Private TCP and UCP port 1194</li>
+<li>Click on the button "Save"</li>
+<li>Click on the button "Update"</li>
+</ul>
+<p><strong>Asus Router:</strong></p>
+<ul>
+<li>Start the Asus Merlin Software</li>
+<li>Select "Advanced Settings" &gt; "WAN" &gt; "Port Trigger" tab</li>
+<li>Click the "yes" radio button</li>
+<li>"Description": Enter a short name e.g. eBlocker</li>
+<li>insert 1194 in the field "Trigger Port" and also 1194 in the field "Incoming Port"</li>
+<li>choose UDP in both "Protocol" dropdown menus</li>
+<li>Click "Apply"</li>
+</ul>
+<p><strong>Speedport W724V</strong></p>
+<ul>
+<li>Tab „Internet“ &gt; Menu „Port activation“</li>
+<li>click on the button „Create other UDP redirection“</li>
+<li>insert 1194 in the fields</li>
+<li>choose the eBlocker or his IP-Address from the Dropdownfeld</li>
+<li>and click on the „SAVE“ button</li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<html>
+<meta charset="utf-8">
+<body>
+<p><a href="index.html">eBlocker Help</a> &gt; <a href="360000227134.html">FAQs</a> &gt; <a href="360000522814.html">Mobile Funktion</a></p>
+<h1>Wie richte ich eine Portweiterleitung am Router ein?</h1>
+<p>Um eine Portweiterleitung einrichten zu können, müssen Sie in der Benutzeroberfläche Ihres Routers angemeldet sein. Einige Router benötigen für die Eingabe einer Portweiterleitung zudem die „erweiterte Ansicht“.</p>
+<p>Im Nachfolgenden haben wir das Anlegen einer Portweiterleitung für die gängigsten Router beschrieben. Bitte beachten Sie, dass die Beschreibung gegebenenfalls leicht abweichen kann. Lesen Sie in dem Fall die Anleitung Ihres Routers oder schauen Sie in den FAQs des Router-Herstellers nach.</p>
+<p><strong>Fritzbox:</strong></p>
+<ul>
+<li>„Erweiterte Ansicht“ auswählen</li>
+<li>Menü Internet &gt; Freigaben &gt; Reiter „Portfreigaben“</li>
+<li>Button „Gerät für Freigaben hinzufügen“ anklicken</li>
+<li>eBlocker auswählen</li>
+<li>Button „Neue Freigabe“ anklicken</li>
+<li>Portfreigabe anklicken</li>
+<li>Im Reiter „Anwendung“ „Andere Anwendung“ auswählen</li>
+<li>Bezeichnung frei wählen (zum Beispiel: eBlocker Mobile)</li>
+<li>Protokoll = UDP</li>
+<li>Port an Gerät = 1194</li>
+<li>Port extern gewünscht = von 1194 bis 1194</li>
+<li>„Freigabe aktivieren“ anklicken</li>
+<li>und auf „OK“ klicken<strong><br></strong>
+</li>
+</ul>
+<p><strong>TP-Link:</strong></p>
+<ul>
+<li>Menü Forwarding &gt; Virtual Servers</li>
+<li>Button „Add New... “</li>
+<li>Service Port = 1194</li>
+<li>Internal Port = 1194</li>
+<li>IP Address = die IP-Adresse Ihres eBlocker</li>
+<li>Protocol = All</li>
+<li>Status = Enabled</li>
+<li>Button „Save“ klicken</li>
+</ul>
+<p> <strong>TP-Link (alternativ):</strong></p>
+<ul>
+<li>Menü Erweitert &gt; NAT &gt; Port-Triggering</li>
+<li>Button „(+) Hinzufügen“</li>
+<li>Applikation =  frei vergeben (zum Beispiel: eBlocker Mobile)</li>
+<li>Triggerport = 1194</li>
+<li>Triggerprotokoll = UDP</li>
+<li>Externer Port = 1194</li>
+<li>Externes Protokoll = UDP</li>
+<li>Aktivieren = (Häkchen setzen)</li>
+<li>Button „OK“ klicken</li>
+</ul>
+<p> <strong>Netgear:</strong></p>
+<ul>
+<li>Reiter „Advanced“ auswählen</li>
+<li>Menü Advanced Setup Einrichtung &gt; Port Forwarding/Port-Triggering &gt; Button „Add Custom Service“</li>
+<li>Service Name frei vergeben (zum Beispiel: eBlocker Mobile)</li>
+<li>Protokoll = UDP</li>
+<li>External Starting Port = 1194</li>
+<li>External Ending Port = 1194</li>
+<li>Haken bei „use the same portrange for the internet port“ setzen</li>
+<li>eBlocker IP-Adresse eingeben oder den eBlocker aus der Liste der Geräte wählen</li>
+<li>Button „Apply“ anklicken</li>
+</ul>
+<p><strong>D-Link:</strong></p>
+<ul>
+<li>Reiter „Advanced“ auswählen</li>
+<li>Im Menü „Virtual Servers“ auswählen</li>
+<li>Den ersten unbenutzte Virtual Server aktivieren</li>
+<li>Nun einen Namen vergeben (zum Beispiel: eBlocker Mobile)</li>
+<li>Public= 1194 bis 1194</li>
+<li>Protocol = UDP</li>
+<li>Die IP-Adresse Ihres eBlocker bei „IP-Adresse“ eingeben</li>
+<li>Private = 1194 bis 1194</li>
+<li>Button „Einstellungen speichern“ anklicken</li>
+</ul>
+<p><strong>Apple Airport:</strong></p>
+<ul>
+<li>Starten Sie das macOS Airport Dienstprogramm</li>
+<li>Wählen Sie den Reiter "Netzwerk" aus</li>
+<li>Klicken Sie bei "Anschlusseinstellungen" auf den "+" Button</li>
+<li>Vergeben Sie einen Namen in dem Feld Beschreibung (zum Beispiel "eBlocker Mobile")</li>
+<li>Geben Sie für die öffentlichen TCP und UCP Ports 1194 ein</li>
+<li>Geben Sie die eBlocker IP-Adresse in das Feld "Private IP Adresse" ein</li>
+<li>Geben Sie für die privaten TCP und UCP Ports 1194 ein</li>
+<li>Klicken Sie auf den Button "Speichern"</li>
+<li>Klicken Sie auf den Button "Update"</li>
+</ul>
+<p><strong>Asus Router:</strong></p>
+<ul>
+<li>Starten Sie die Asus Merlin Software</li>
+<li>Wählen Sie "Erweiterte Einstellungen" &gt; "WAN" &gt; Registerkarte "Port Trigger"</li>
+<li>Klicken Sie auf den Auswahlknopf "ja"</li>
+<li>" Beschreibung": Geben Sie einen Kurznamen ein, z.B. eBlocker.</li>
+<li>Geben Sie 1194 in das Feld "Trigger Port" und 1194 in das Feld "Incoming Port" ein.</li>
+<li>Wählen Sie UDP in den beiden Dropdown-Menüs "Protokoll".</li>
+<li>Klicken Sie auf "Übernehmen".</li>
+</ul>
+<p><strong>Speedport W724V / W921V<br></strong></p>
+<ul>
+<li>Reiter „Internet“ &gt; Menü „Portfreischaltung“</li>
+<li>Button „Weitere UDP Umleitung anlegen“ anklicken</li>
+<li>in den drei Felder je 1194 eingeben</li>
+<li>den eBlocker oder dessen IP-Adresse im Dropdownfeld auswählen</li>
+<li>und auf „OK“ / "Speichern" klicken</li>
+</ul>
+</body>
+</html>

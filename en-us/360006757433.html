@@ -1,0 +1,25 @@
+<html>
+<meta charset="utf-8">
+<body>
+<p><a href="index.html">eBlocker Help</a> &gt; <a href="360000227134.html">FAQs</a> &gt; <a href="360000515213.html">Network</a></p>
+<h1>How can I clear the DNS cache?</h1>
+<p>When you open a web site (example: www.eblocker.com), the web site is translated into an IP address (138.68.124.96 ) by a domain name server on the Internet. This information is then usually temporarily stored by your device in a DNS cache, so that a new visit to www.eblocker.com can be processed more quickly.</p>
+<p>If the IP address of a web site changes, problems may occur. The DNS cache does not yet have this new information and will redirect you to the old IP address. In such situations it usually helps to clear the DNS cache once.</p>
+<p><strong>eBlocker</strong></p>
+<p>Open the eBlocker settings and go to the menu "DNS-Firewall". Click on the "Empty DNS Cache" button at the bottom of the page to clear the eBlocker DNS cache.</p>
+<p><strong>Windows</strong></p>
+<p>Open the command prompt. You will also find the prompt if you search for "cmd".<br>In the command prompt, type "ipconfig /flushdns" and Windows' DNS cache will be cleared.</p>
+<p><strong>macOS 10.12.0 and higher</strong></p>
+<p>Open the terminal. You can also find the terminal by entering "terminal" in the search.<br>Type the command "sudo killall -HUP mDNSResponder" in the terminal and the DNS cache of macOS will be deleted.</p>
+<p><strong>iOS</strong></p>
+<p>On an iPad, or iPhone, it is usually enough to activate the flight mode once to clear the DNS cache. Another way would be to restart the device.</p>
+<p><strong>Android</strong></p>
+<p>On an Android device you can clear the DNS cache by restarting the device.</p>
+<p><strong>Linux (Ubuntu)</strong></p>
+<p>To use DNS caching services in Linux distributions such as Ubuntu and clear the cache, you need administrator rights.<br>Open a terminal and enter the command "sudo /etc/init.d/dns-clean restart" and the DNS cache of Ubuntu will be deleted.</p>
+<p><strong>Browser Chrome / Chromium</strong></p>
+<p>Open the browser and enter "chrome://net-internals/#dns" in the address bar. Then click on the button "Clear host cache" to delete the DNS cache from your browser.</p>
+<p><strong>Browser Firefox</strong></p>
+<p>Open the browser and enter "about:config" in the address bar and search for "network.dnsCacheExpiration". Double click on the value (60) and set it to 0. Click on "OK" to clear the browser cache. You can then set the value to "60" again.</p>
+</body>
+</html>

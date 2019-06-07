@@ -1,0 +1,36 @@
+<html>
+<meta charset="utf-8">
+<body>
+<p><a href="index.html">eBlocker Help</a> &gt; <a href="360000227154.html">Knowledge Base</a> &gt; <a href="360000516793.html">Help</a></p>
+<h1>Accessing the eBlocker settings</h1>
+<p>Note that the eBlocker takes about five minutes to start for the first time.</p>
+<p>There are several ways to get to the settings</p>
+<p><strong>A</strong></p>
+<p>If the eBlocker icon is displayed in the upper right corner of a website, a click on it opens the control bar. Click on "Settings" on the control bar to access the settings.<br>If the eBlocker icon does not appear on http://setup.eblocker.com/, please clear your browser's cache and reload the page.</p>
+<p><strong>B</strong></p>
+<p>You can also access the settings and overview directly from the http://setup.eblocker.com/ page, or you can click on the eBlocker icon in the top right corner of the setup page and open the control bar. On the Control Bar, click on "Settings".</p>
+<p>If the setup page does not display the eBlocker icon, it may also be because the eBlocker is disabled for the device you are using in the eBlocker Settings &gt; Devices menu. If possible, try to access the setup page with another device.</p>
+<p>If access via the setup page is not successful, you must determine the IP address of the eBlocker. How to do this depends on the eBlocker's network mode.</p>
+<p><strong>C</strong></p>
+<p>We provide an App for the Apple operating system iOS which allows you to easily find and manage your eBlocker in your home network.</p>
+<p>The iOS eBlocker App for iPhone and iPad can be found here:<br><a href="https://itunes.apple.com/us/app/eblocker/id1460807947?mt=8">https://itunes.apple.com/us/app/eblocker/id1460807947?mt=8</a> </p>
+<p><strong>D</strong></p>
+<p>Starting with eBlockerOS version 1.11.9 and the activated eBlocker DNS function, you can access the settings via the dashboard. Simply enter eblocker.box in your browser.</p>
+<p><strong>Automatic mode (factory setting)</strong></p>
+<p>Open your router settings and open the list of DHCP clients. Some routers offer an overview of connected devices under the menu item "Administration &gt; Connected Devices". Other routers display the active connections in the "Home Network &gt; Network" menu. To see the list of connected devices, you may need to activate an "extended view" for your router. Please refer to your router's manual to find out how and where to activate this "extended view".</p>
+<p>If there is an entry called "eBlocker" in the list of devices, copy the IP address into the address line of your browser. Add a colon and port 3000 so that the complete URL looks like this: http://192.168.178.42:3000/</p>
+<p><strong>Individual mode (also called manual mode)</strong></p>
+<p>If you are running eBlocker in manual network mode but are not sure what IP address it has, you may need an app to scan the network. Here are some examples:</p>
+<ul>
+<li>The "Fing" tool for iOS</li>
+<li>The "Fing" tool for Android</li>
+<li>The "LanScan" tool for macOS</li>
+<li>The tool "nmap" for Linux</li>
+</ul>
+<p>If you find the IP address of the eBlocker in this way, you can load the settings in the browser by adding a colon and port 3000 to the IP address: http://IPADDRESS:3000/</p>
+<p><strong>Emergency IP Address</strong></p>
+<p>The eBlocker is permanently set to the local address http://169.254.94.109:3000/ It may be necessary to set the IP address of your computer to an address in the subnet 169.254 so that you can access the local address, e.g. 169.254.23.42</p>
+<p><strong>Direct Line</strong></p>
+<p>As a last option, you can also connect the eBlocker directly to your computer using a network cable. If necessary, deactivate the WLAN connection of your computer beforehand. Wait 5 minutes until the eBlocker has started and your computer has assigned itself an IP address in the subnet 169.254. Then try to access the emergency IP address: http://169.254.94.109:3000/</p>
+</body>
+</html>

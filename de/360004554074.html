@@ -1,0 +1,12 @@
+<html>
+<meta charset="utf-8">
+<body>
+<p><a href="index.html">eBlocker Help</a> &gt; <a href="360000227154.html">Wissensdatenbank</a> &gt; <a href="360000516813.html">Einschränkungen und bekannte Probleme</a></p>
+<h1>Der eBlocker und die Fritzbox 7490</h1>
+<p>Die Fritzbox 7490 ist weiterhin nicht im Plug &amp; Play Modus kompatibel mit dem eBlocker, denn sie verfügt über einen bestätigten Bug, der sich durch die äußerst langsame Geschwindigkeit äußert, sobald der eBlocker angeschlossen wird.</p>
+<p>Der Bug ist nicht eBlocker spezifisch, sondern resultiert aus der nicht standardmäßigen Routenführung der Fritzbox 7490, wenn das WLAN der Fritzbox genutzt wird.</p>
+<p>Das Problem kann man beheben, indem man den eBlocker in seine individuellen Einstellungen umstellt und anschließend den DHCP Server der Fritzbox 7490 deaktiviert.</p>
+<p>In den individuellen Einstellungen startet der eBlocker seinen eigenen DHCP Server. Mit dieser Einstellung ist die Fritzbox 7490 auch kompatibel mit dem eBlocker.<br>Auf der folgenden Webseite zeigen wir die Schritte der Umstellung auf: <a href="https://www.eblocker.com/de/individuelle-einstellungen/" target="_blank" rel="noopener">https://www.eblocker.com/de/individuelle-einstellungen/</a></p>
+<p>Alternativ kann man das WLAN der Fritzbox deaktivieren und den DHCP Server der Fritzbox dabei aktiviert lassen. Danach können Sie einen FritzRepeater (z.B. 1750E) per LAN an die Fritzbox anschließen.<br>Der FritzRepeater wird dann als Access Point (LAN-Brücke) das WLAN anbieten. In dieser Kombination sollte der eBlocker auch Plug &amp; Play kompatibel mit der Fritzbox 7490 sein.</p>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<html>
+<meta charset="utf-8">
+<body>
+<p><a href="index.html">eBlocker Help</a> &gt; <a href="360000222273.html">Release Notes</a> &gt; <a href="360000515633.html">Version 1.x</a></p>
+<h1>Release Notes 1.7</h1>
+<p><span style="font-size: 20px;"><strong>eBlocker OS 1.7.6</strong></span></p>
+<p><span style="font-size: 20px;"><strong>Bug Fixes</strong></span></p>
+<p>Fixed a bug that could cause issues when too many system file were open at the same time.</p>
+<hr>
+<p><strong><span style="font-size: 20px;">eBlocker OS 1.7</span></strong></p>
+<p><strong><span style="font-size: 20px;">Main Release New Features</span></strong></p>
+<p><strong>DNS Server (beta)</strong></p>
+<p>The eBlocker DNS server now provides the functionality to serve and maintain individual server names and IP addresses for your local network. This is useful for addressing servers in a local network with a name instead of the IP address (i.e. “myrouter” instead of 192.168.0.1)</p>
+<p>In addition, we updated and extended the list of public DNS servers on our website to be used as external DNS servers.</p>
+<p>Please note that the DNS feature is still in beta and needs to be activated in the settings. Activation is not yet recommended for production environments.</p>
+<p><strong>Parental Control Content Filter via DNS</strong></p>
+<p>If the eBlocker DNS server is activated (see above), the parental control filters will also take advantage of the local DNS. The benefit is that SSL links (https) to inappropriate sites will always be blocked, even if the SSL feature is not activated for the protected device. The current disadvantage of this new feature is that blocked pages will just be displayed as standard browser error. Further details about why the page has been blocked are not yet available in this mode.</p>
+<p><strong>Database Backup</strong></p>
+<p>In rare cases, it could occur that the eBlocker’s database got corrupted, e.g. if the power had been removed, while a database write process was in progress. To avoid this in the future, the eBlockers database will now automatically be backed up frequently. Now the database will automatically be restored from the latest backup in case of a database error.</p>
+<p><strong>Devices</strong></p>
+<p>It is now easier to clean up long device lists using the eBlocker settings: With just two clicks you can delete all outdated devices from the list that are offline or do not have a valid IP address anymore.</p>
+<p><strong>License Management</strong></p>
+<p>So far, there was no clear hint to the user, if the update license was about to expire or was already expired. Now there is a clear indication to make the user aware of the expiring license.</p>
+<p><strong><span style="font-size: 20px;">Bug Fixes</span></strong></p>
+<p><strong>Filter lists</strong></p>
+<p>eBlocker would sometimes log uncritical error messages, while reading updated blocking filter lists. This has been fixed.</p>
+<p><strong>Log files</strong></p>
+<p>In rare cases, system log files could fill up the available storage. The regular clean up routine as well as the factory reset have been extended to avoid and to fix this issue.</p>
+<p><strong>General</strong></p>
+<p>Several other bugs were fixed and improvements to the UI and the core processes have been implemented to further increase performance and stability.</p>
+<p><em>Please note that an update to the current eBlockeOS version 1.7.x may take up to 10 minutes. <br>Please clear your browser cache after the update.</em></p>
+</body>
+</html>
