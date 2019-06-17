@@ -12,19 +12,42 @@
 <p><img src="../attachments/360017142554-blocker-00-en.png" alt="blocker-00-en.png"></p>
 <h2><strong>Overview</strong></h2>
 <p>Here you get an overview of the used blocker features of the eBlocker. If you move the mouse over the individual symbols, you will receive further information.</p>
-<p><img src="../attachments/360017142554-blocker-01-en.png" alt="blocker-01-en.png"></p>
+<p><img src="../attachments/360017142554-2-4-blocker-01-en.png" alt="2-4-blocker-01-en.png"></p>
 <p><strong>Status</strong></p>
 <p>Move your mouse over the status icon and you will get a short information about the filter and the number of devices using this blocker.</p>
 <p>If you see a yellow triangle behind the status symbol, this is an extra reference to the blocker. If you move the mouse over the yellow triangle, the note is displayed.</p>
 <p><strong>Blocker</strong></p>
-<p>There are three blocker features.</p>
-<p>The domain blockers for ads and trackers block ads and trackers as soon as the domain is accessed. This blocker can also be used without activating the eBlocker SSL feature.</p>
-<p>The Pattern Blockers for Ads and Tracker recognize the trackers and ads based on patterns. For these blockers the activation of the eBlocker SSL feature is necessary.</p>
-<p>Malware and Phishing Blockers</p>
+<p>Here the eBlocker distinguishes between <strong>Pattern</strong> and <strong>Domain</strong> <strong>Blocker</strong>.</p>
 <p><strong>Devices</strong></p>
 <p>Here you can see a list of all devices that currently use this blocker. If you move the mouse over the devices, a list of all devices is displayed.</p>
 <p><strong>Blocked Requests</strong></p>
 <p>Here you see a list of all blocked requests from all devices since the start of your eBlocker.</p>
+<p><strong>What are Domain and Pattern Blockers?</strong></p>
+<p>The D<strong>omain Blockers</strong> for ads and trackers block ads and trackers as soon as the domain is accessed. This blocker can also be used without activating the eBlocker SSL feature.</p>
+<p>The <strong>Pattern Blockers</strong> for Ads and Tracker recognize the trackers and ads based on patterns. For these blockers the activation of the eBlocker SSL feature is necessary.</p>
+<p><strong>Upload your own lists.</strong></p>
+<p>You also have the opportunity to upload your own or free domain and pattern lists.</p>
+<p><strong>Important:</strong><br>When uploading the lists, please note their function. Only if, for example, you upload domain advertising blocker lists to the Domain Advertising Blocker will the correct statistics be evaluated in the eBlocker afterwards. If you do not pay attention to this, the Tracker Blockers will be counted among the Domain Advertising Blockers.</p>
+<p>The eBlocker allows you to upload different list formats:</p>
+<p><strong>"Domain List"</strong> <br>Domain lists are lists which contain normal domains.</p>
+<pre><strong>Example</strong>: domain.com</pre>
+<p><strong>"squid-acl list"</strong> <br>Squid-acl lists are comparable to domain list lists.</p>
+<pre><strong>Example</strong>: domain.com</pre>
+<p><strong>"etc.hosts list"</strong> <br>Etc.host lists are lists which for example have an IP address in front of the domain. These are usually the IP address of the local host (127.0.0.1), or the IP address 0.0.0.0.</p>
+<pre><strong>Example</strong>: 127.0.0.1 domain.com</pre>
+<p><strong>"easylist"</strong> <br>Easylist are lists in the format of known browser extensions such as AdBlock.</p>
+<pre><strong>Example</strong>: @@/ad_file/*$image,domain=domain.de|domains.de</pre>
+<p>For the domain, squid-acl and ect.hosts list, the # character indicates a comment which will not be imported by the eBlocker.</p>
+<pre><strong>Example</strong> # Domains follow</pre>
+<p><strong>Upload own / free lists.</strong></p>
+<p>To upload a list, click on one of the three items (Advertising, Tracker, Malware &amp; Phishing) in the overview of the domain or pattern blocker.</p>
+<p><img src="../attachments/360017142554-2-4-blocker-02-en.png" alt="2-4-blocker-02-en.png"></p>
+<p>On the following page, please click the <strong>ADD</strong> button.</p>
+<p>Now you can assign a name to the list, select the format of the list (see above), enter the URL (web address) of the list and activate the switch for "daily update" if necessary.</p>
+<p>After a click on the <strong>SAVE</strong> button, the eBlocker will first download this list and then import it. Importing a list may take a few seconds, depending on the length of the list.</p>
+<p><strong>An example of collections of lists on the Internet:</strong></p>
+<p>At <a href="https://firebog.net/" target="_blank" rel="noopener">https://firebog.net/</a> you will find mainly <strong>domain</strong> and<strong> ect.hosts</strong> lists. Always pay attention to the beginning of the lists. If you find an IP address at the beginning (127.0.0.1 or 0.0.0.0), it is an ect.hosts list.</p>
+<p>On <a href="https://filterlists.com/" target="_blank" rel="noopener">https://filterlists.com/</a> you can find a lot of filter lists. Here you can for example search for "<strong>AdBlock</strong>" lists, which you can import into the eBlocker Pattern Blocker. Make sure that you select the "<strong>easylist</strong>" format for such lists.</p>
 <h2><strong>Advanced settings</strong></h2>
 <p>The advanced settings require the activation of the HTTPS function.</p>
 <p><img src="../attachments/360017142554-blocker-02-en.png" alt="blocker-02-en.png"></p>

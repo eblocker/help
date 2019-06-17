@@ -12,19 +12,42 @@
 <p><img src="../attachments/360017142554-blocker-00-de.png" alt="blocker-00-de.png"></p>
 <h2><strong>Übersicht</strong></h2>
 <p>Hier erhalten Sie eine Übersicht über die genutzten Blocker Funktionen des eBlocker. Wenn Sie mit der Maus über die einzelnen Symbole fahren, erhalten Sie weitere Informationen.</p>
-<p><img src="../attachments/360017142554-blocker-01-de.png" alt="blocker-01-de.png"></p>
+<p><img src="../attachments/360017142554-2-4-blocker-01-de.png" alt="2-4-blocker-01-de.png"></p>
 <p><strong>Status</strong></p>
 <p>Fahren Sie mit der Maus über das Status Symbol und Sie bekommen eine kurze Information zu dem Filter und die Anzahl der Geräte, welche diesen Blocker benutzen.</p>
 <p>Sehen Sie hier hinter dem Status Symbol ein gelbes Dreieck, so ist das ein extra Hinweis zu dem Blocker. Wenn Sie mit der Maus über das gelbe Dreieck fahren, wird Ihnen der Hinweis angezeigt.</p>
 <p><strong>Blocker</strong></p>
-<p>Es gibt drei Blocker Funktionen.</p>
-<p>Die <strong>Domain Blocker</strong> für Werbung und Tracker blockieren schon beim Aufrufen der Domain, Werbungen und Tracker. Dieser Blocker kann auch ohne die Aktivierung der eBlocker HTTPS Funktion genutzt werden.</p>
-<p>Die <strong>Pattern Blocker</strong> für Werbung und Tracker erkennen anhand von Mustern die Tracker und Werbung. Für diese Blocker ist die Aktivierung von der eBlocker SSL Funktion notwendig.</p>
-<p><strong>Malware und Phishing</strong> Blocker</p>
+<p>Hier unterscheidet der eBlocker zwischen <strong>Pattern</strong> und <strong>Domain</strong> <strong>Blocker</strong>.</p>
 <p><strong>Geräte</strong></p>
 <p>Hier sehen Sie eine Auflistung alle Geräte, welche diesen Blocker zurzeit nutzen. Wenn Sie mit der Maus über die Gräte fahren, wird eine Liste mit allen Geräten angezeigt.</p>
 <p><strong>Geblockt</strong></p>
 <p>Hier sehen Sie eine Auflistung aller blockierten Anfragen von allen Geräten seit dem Start Ihres eBlockers.</p>
+<p><strong>Was sind Domain und Pattern Blocker?</strong></p>
+<p>Die <strong>Domain Blocker</strong> für Werbung und Tracker blockieren schon beim Aufrufen der Domain, Werbungen und Tracker. Dieser Blocker kann auch ohne die Aktivierung der eBlocker HTTPS Funktion genutzt werden.</p>
+<p>Die <strong>Pattern Blocker</strong> für Werbung und Tracker erkennen anhand von Mustern die Tracker und Werbung. Für diese Blocker ist die Aktivierung von der eBlocker HTTPS Funktion notwendig.</p>
+<p><strong>Hochladen von eigenen Listen.</strong></p>
+<p>Sie haben hier die Möglichkeit auch eigene, beziehungsweise freie, Domain- und Pattern (Muster) Listen hoch zu laden.</p>
+<p><strong>Wichtig:</strong><br>Beachten Sie beim Hochladen der Listen bitte deren Funktion. Nur wenn Sie zum Beispiel Domain Werbe Blocker Listen bei den Domain Werbe Blocker hochladen, so werden im Anschluss auch die richtigen Statistiken im eBlocker ausgewertet. Falls Sie nicht darauf achten, so werden gegebenenfalls bei den Domain Werbe Blocker die Tracker Blocker mitgezählt. </p>
+<p>Der eBlocker erlaubt Ihnen das Hochladen von verschieden Listen-Formate:</p>
+<p><strong>„Domain Liste“</strong> <br>Domain Listen sind Listen, welche ganz normale Domains enthalten.</p>
+<pre><strong>Beispiel</strong>: domain.com</pre>
+<p><strong>„squid-acl Liste“</strong> <br>Squid-acl Listen sind vergleichbar mit den Domain Liste Listen.</p>
+<pre><strong>Beispiel</strong>: domain.com</pre>
+<p><strong>„etc.hosts Liste“</strong> <br>Etc.host Listen sind Listen, die vor der Domain zum Beispiel eine IP-Adresse stehen haben. Dabei handelt es sich meist um die IP-Adresse des Localhost (127.0.0.1), oder auch um die IP-Adresse 0.0.0.0.</p>
+<pre><strong>Beispiel</strong>: 127.0.0.1 domain.com</pre>
+<p><strong>„easylist“</strong> <br>Easylist sind Listen im Format der bekannten Browser Erweiterungen wie zum Beispiel AdBlock.</p>
+<pre><strong>Beispiel</strong>: @@/ad_file/*$image,domain=domain.de|domains.de</pre>
+<p>Für die Domain, squid-acl und ect.hosts Liste gilt, dass das<strong> #</strong> Zeichen eine Bemerkung kennzeichnet, welche nicht vom eBlocker importiert wird.</p>
+<pre><strong>Beispiel</strong>: # Es folgen Domains</pre>
+<p style="margin-bottom: 0in; line-height: 100%;"><strong>Hochladen von eigenen / freien Listen.</strong></p>
+<p>Um eine Liste hoch zu laden klicken Sie in der Übersicht der <strong>Domain</strong> oder <strong>Pattern</strong> <strong>Blocker</strong> einen der drei Punkte (Werbe, Tracker, Malware &amp; Phishing) an. </p>
+<p><img src="../attachments/360017142554-2-4-blocker-02-de.png" alt="2-4-blocker-02-de.png"></p>
+<p>Auf der folgenden Seite klicken Sie bitte auf den Button <strong>HINZUFÜGEN</strong>.</p>
+<p>Nun können Sie der Liste einen Namen vergeben, das Format der Liste auswählen (siehe oben), die URL (Webadresse) der Liste eingeben und können gegebenenfalls den Schalter für „tägliche Aktualisierung“ aktivieren.</p>
+<p>Nach einem Klick auf den Button <strong>SPEICHERN</strong> wird der eBlocker im Anschluss diese Liste erst herunterladen und dann importieren. Der Import einer Liste kann, je nach Länge der Liste, einige Sekunden benötigen.</p>
+<p><strong>Ein Beispiel für Sammlungen von Listen im Internet:</strong></p>
+<p>Auf der Seite <a href="https://firebog.net/" target="_blank" rel="noopener">https://firebog.net/</a> finden Sie hauptsächlich <strong>Domain</strong> und <strong>ect.hosts</strong> Listen. Achten Sie bei den Listen immer auf den Anfang. Finden Sie am Anfang eine IP-Adresse (127.0.0.1 oder auch 0.0.0.0), dann handelt es sich um eine <strong>ect.hosts</strong> Liste.</p>
+<p>Auf der Seite <a href="https://filterlists.com/" target="_blank" rel="noopener">https://filterlists.com/</a> finden Sie eine Menge an Filterlisten. Hier können Sie zum Beispiel nach „<strong>AdBlock</strong>“ Listen suchen, welche Sie bei den eBlocker Pattern Blocker importieren können. Achten Sie darauf, dass Sie bei solchen Listen das Format „<strong>easylist</strong>“ auswählen.</p>
 <h2><strong>Erweiterte Funktionen</strong></h2>
 <p>Die erweiterten Funktionen benötigen die Aktivierung der HTTPS Funktion.</p>
 <p><img src="../attachments/360017142554-blocker-02-de.png" alt="blocker-02-de.png"></p>
