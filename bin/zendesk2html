@@ -1,0 +1,270 @@
+#!/usr/bin/env ruby
+
+require 'net/http'
+require 'json'
+require 'uri'
+require 'find'
+require 'erb'
+
+base_url = 'https://eblocker.zendesk.com/api/v2/help_center/'
+languages = ['de', 'en-us']
+
+class ApiClient
+  def initialize(base_url)
+    @base_url = base_url
+    @http = nil # call start
+  end
+
+  def start
+    uri = URI(@base_url) # only hostname and port are needed here
+    @http = Net::HTTP.start(uri.hostname, uri.port, use_ssl: true)
+  end
+
+  def finish
+    @http.finish()
+  end
+
+  def download_unless_cached(url, local_file)
+    if File.exist? local_file
+      warn "Using cached #{local_file}"
+    else
+      warn "Downloading #{local_file}"
+      download_file(url, local_file)
+    end
+  end
+
+  def download_file(url, filename)
+    uri = URI(url)
+    req = Net::HTTP::Get.new(uri)
+    #req.basic_auth(@user, @password)
+    response = @http.request(req)
+    File.open(filename, 'w') do |file|
+      file.write(response.body)
+    end
+  end
+
+  def download_data(language)
+    ['categories', 'sections', 'articles'].each do |kind|
+      download(kind, language)
+    end
+    download_attachment_data(language)
+  end
+
+  def download(kind, language)
+    url = @base_url + language + '/' + kind + '.json'
+
+    i = 1
+    # Results are paginated
+    while url
+      local_file = "json/%s/%s-%03d.json" % [language, kind, i]
+      download_unless_cached(url, local_file)
+      data = JSON.parse(File.read(local_file))
+      url = data['next_page']
+      i = i + 1
+    end
+  end
+
+  def download_attachment_data(language)
+    each_object('articles', language) do |article|
+      aid = article['id'].to_s
+      url = @base_url + language + '/articles/' + aid + '/attachments.json'
+      local_file = "json/#{language}/article_attachments-#{aid}.json"
+      download_unless_cached(url, local_file)
+    end
+  end
+
+  def download_attachments(language)
+    each_object('article_attachments', language) do |attachment|
+      url = attachment['content_url']
+      local_file = 'docs/attachments/%s-%s' % [attachment['article_id'], attachment['file_name']]
+      download_unless_cached(url, local_file)
+    end
+  end
+
+  def each_object(kind, language)
+    each_json_file(kind, language) do |file|
+      data = JSON.parse(File.read(file))
+      data[kind].each do |obj|
+        yield(obj)
+      end
+    end
+  end
+
+  def each_json_file(kind, language)
+    Find.find("json/#{language}") do |file|
+      if file =~ /#{kind}-\d+\.json/
+        yield(file)
+      end
+    end
+  end
+end
+
+class HtmlExporter
+  def initialize(api_client)
+    @api_client = api_client
+  end
+
+  def sort_by_position(items)
+    items.sort do |a, b|
+      a['position'].to_i <=> b['position'].to_i
+    end
+  end
+
+  def write_html(filename, html)
+    File.open(filename, 'w') do |file|
+      file.puts('<html>')
+      file.puts('<meta charset="utf-8">')
+      file.puts(html)
+      file.puts('</html>')
+    end
+    warn "Wrote #{filename}"
+  end
+
+  def navigation(navi)
+    return "<p>" + navi.map{|n| "<a href=\"#{n[1]}\">#{n[0]}</a>"}.join(' &gt; ') + "</p>"
+  end
+
+  def export_html(languages)
+    template = ERB.new <<EOF
+<body>
+<h1>eBlocker Help</h1>
+<ul>
+<li><a href="de/index.html">Deutsch</a></li>
+<li><a href="en-us/index.html">English</a></li>
+</ul>
+</body>
+EOF
+    write_html('docs/index.html', template.result(binding))
+    languages.each do |language|
+      export_html_lang(language)
+    end
+  end
+
+  def export_html_lang(language)
+    categories = []
+    @api_client.each_object('categories', language) {|category| categories << category}
+    categories = sort_by_position(categories)
+
+    navi = [['eBlocker Help', 'index.html']]
+
+    template = ERB.new <<EOF
+<body>
+<%= navigation(navi) %>
+<h1>eBlocker Help</h1>
+<ul>
+<% categories.each do |category| %>
+<li><a href="<%= category['id'] %>.html"><%= category['name'] %></a></li>
+<% end %>
+</ul>
+</body>
+EOF
+    write_html("docs/#{language}/index.html", template.result(binding))
+    categories.each do |category|
+      export_sections(category, language, navi)
+    end
+  end
+
+  def export_sections(category, language, navi)
+    sections = []
+    @api_client.each_object('sections', language) do |section|
+      if section['category_id'] == category['id']
+        sections << section
+      end
+    end
+    sections = sort_by_position(sections)
+
+    navi += [[category['name'], "#{category['id']}.html"]]
+
+    template = ERB.new <<EOF
+<body>
+<%= navigation(navi) %>
+<h1><%= category['name'] %></h1>
+<ul>
+<% sections.each do |section| %>
+<li><a href="<%= section['id'] %>.html"><%= section['name'] %></a></li>
+<% end %>
+</ul>
+</body>
+EOF
+    write_html("docs/#{language}/#{category['id']}.html", template.result(binding))
+    sections.each do |section|
+      export_articles(section, language, navi)
+    end
+  end
+
+  def export_articles(section, language, navi)
+    articles = []
+    @api_client.each_object('articles', language) do |article|
+      if article['section_id'] == section['id']
+        articles << article
+      end
+    end
+    articles = sort_by_position(articles)
+
+    navi += [[section['name'], "#{section['id']}.html"]]
+
+    template = ERB.new <<EOF
+<body>
+<%= navigation(navi) %>
+<h1><%= section['name'] %></h1>
+<ul>
+<% articles.each do |article| %>
+<li><a href="<%= article['id'] %>.html"><%= article['name'] %></a></li>
+<% end %>
+</ul>
+</body>
+EOF
+    write_html("docs/#{language}/#{section['id']}.html", template.result(binding))
+    articles.each do |article|
+      export_article(article, language, navi)
+    end
+  end
+
+  def export_article(article, language, navi)
+    body = process_body(article)
+    template = ERB.new <<EOF
+<body>
+<%= navigation(navi) %>
+<h1><%= article['title'] %></h1>
+<%= body %>
+</body>
+EOF
+    write_html("docs/#{language}/#{article['id']}.html", template.result(binding))
+  end
+
+  def process_url(article, url)
+    # Attachments (images):
+    if url =~ Regexp.new('^https://support.eblocker.com/hc/article_attachments/\\d+/(.+)$')
+      return "../attachments/#{article['id']}-#$1"
+    end
+
+    # Links to other articles/categories/sections:
+    if url =~ Regexp.new('^https://support.eblocker.com/hc/[a-z\\-]+/(articles|categories|sections)/(\\d+)')
+      return "#$2.html"
+    end
+
+    warn "Unhandled URL: #{url}"
+    return url
+  end
+
+  def process_body(article)
+    body = article['body']
+    body.gsub!(Regexp.new('\\b(https?://[0-9a-zA-Z_\\-\\./%]+)')) do |url|
+      process_url(article, $1)
+    end
+    return body
+  end
+end
+
+
+client = ApiClient.new(base_url)
+client.start()
+languages.each do |language|
+  client.download_data(language)
+  client.download_attachments(language)
+end
+client.finish()
+
+exporter = HtmlExporter.new(client)
+exporter.export_html(languages)
+
