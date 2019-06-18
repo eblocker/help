@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+# coding: utf-8
 
 require 'net/http'
 require 'json'
@@ -100,8 +101,40 @@ class ApiClient
 end
 
 class HtmlExporter
-  def initialize(api_client)
+  def initialize(api_client, languages)
+    @languages = languages
     @api_client = api_client
+    collect_attachments()
+    @translation = {
+      attachments: {'de' => 'Anhänge', 'en-us' => 'Attachments'},
+      eblockerhelp: {'de' => 'eBlocker Hilfe', 'en-us' => 'eBlocker Help'}
+    }
+  end
+
+  # Collect attachments that are not inline images
+  def collect_attachments()
+    # map: language -> article ID -> list of attachments
+    @attachments = {}
+    @languages.each do |language|
+      @attachments[language] = Hash.new{|h, k| h[k] = []}
+      @api_client.each_object('article_attachments', language) do |attachment|
+        if !attachment['inline']
+          @attachments[language][attachment['article_id']] << attachment
+        end
+      end
+    end
+  end
+
+  def translate(key, language)
+    entry = @translation[key]
+    if entry == nil
+      raise "Could not find translation for key :#{key}"
+    end
+    text = entry[language]
+    if text == nil
+      raise "Could not find translation in language '#{language}' for key :#{key}"
+    end
+    text
   end
 
   def sort_by_position(items)
@@ -124,10 +157,10 @@ class HtmlExporter
     return "<p>" + navi.map{|n| "<a href=\"#{n[1]}\">#{n[0]}</a>"}.join(' &gt; ') + "</p>"
   end
 
-  def export_html(languages)
+  def export_html()
     template = ERB.new <<EOF
 <body>
-<h1>eBlocker Help</h1>
+<h1><%= translate(:eblockerhelp, 'de') %> / <%= translate(:eblockerhelp, 'en-us') %></h1>
 <ul>
 <li><a href="de/index.html">Deutsch</a></li>
 <li><a href="en-us/index.html">English</a></li>
@@ -135,7 +168,7 @@ class HtmlExporter
 </body>
 EOF
     write_html('docs/index.html', template.result(binding))
-    languages.each do |language|
+    @languages.each do |language|
       export_html_lang(language)
     end
   end
@@ -145,12 +178,12 @@ EOF
     @api_client.each_object('categories', language) {|category| categories << category}
     categories = sort_by_position(categories)
 
-    navi = [['eBlocker Help', 'index.html']]
+    navi = [[translate(:eblockerhelp, language), 'index.html']]
 
     template = ERB.new <<EOF
 <body>
 <%= navigation(navi) %>
-<h1>eBlocker Help</h1>
+<h1><%= translate(:eblockerhelp, language) %></h1>
 <ul>
 <% categories.each do |category| %>
 <li><a href="<%= category['id'] %>.html"><%= category['name'] %></a></li>
@@ -222,11 +255,25 @@ EOF
 
   def export_article(article, language, navi)
     body = process_body(article)
-    template = ERB.new <<EOF
+    attachments = @attachments[language][article['id']].map do |attachment|
+      {
+        name: attachment['file_name'],
+        url: process_url(article, attachment['content_url'])
+      }
+    end
+    template = ERB.new(<<EOF, nil, '-')
 <body>
 <%= navigation(navi) %>
 <h1><%= article['title'] %></h1>
 <%= body %>
+<% if attachments.size > 0 -%>
+<h2><%= translate(:attachments, language) %></h2>
+<ul>
+<%   attachments.each do |attachment| -%>
+<li><a target="_blank" href="<%= attachment[:url] %>"><%= attachment[:name] %></a></li>
+<%   end -%>
+</ul>
+<% end -%>
 </body>
 EOF
     write_html("docs/#{language}/#{article['id']}.html", template.result(binding))
@@ -234,13 +281,13 @@ EOF
 
   def process_url(article, url)
     # Attachments (images):
-    if url =~ Regexp.new('^https://support.eblocker.com/hc/article_attachments/\\d+/(.+)$')
-      return "../attachments/#{article['id']}-#$1"
+    if url =~ Regexp.new('^https://(support.eblocker.com|eblocker.zendesk.com)/hc/article_attachments/\\d+/(.+)$')
+      return "../attachments/#{article['id']}-#$2"
     end
 
     # Links to other articles/categories/sections:
-    if url =~ Regexp.new('^https://support.eblocker.com/hc/[a-z\\-]+/(articles|categories|sections)/(\\d+)')
-      return "#$2.html"
+    if url =~ Regexp.new('^https://(support.eblocker.com|eblocker.zendesk.com)/hc/[a-z\\-]+/(articles|categories|sections)/(\\d+)')
+      return "#$3.html"
     end
 
     warn "Unhandled URL: #{url}"
@@ -265,6 +312,6 @@ languages.each do |language|
 end
 client.finish()
 
-exporter = HtmlExporter.new(client)
-exporter.export_html(languages)
+exporter = HtmlExporter.new(client, languages)
+exporter.export_html()
 
