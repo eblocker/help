@@ -175,18 +175,22 @@ class HtmlExporter
     end
   end
 
-  def write_html(filename, html)
-    File.open(filename, 'w') do |file|
-      file.puts('<html>')
-      file.puts('<meta charset="utf-8">')
-      file.puts(html)
-      file.puts('</html>')
+  def write_html(filename, body)
+    File.open(filename, 'w') do |f|
+      f.puts('<!DOCTYPE html>')
+      f.puts('<html>')
+      f.puts('<head>')
+      f.puts('<meta charset="utf-8">')
+      f.puts('<link rel="stylesheet" href="../stylesheets/help.css">')
+      f.puts('</head>')
+      f.puts(body)
+      f.puts('</html>')
     end
     warn "Wrote #{filename}"
   end
 
   def navigation(navi)
-    return "<p>" + navi.map{|n| "<a href=\"#{n[1]}\">#{n[0]}</a>"}.join(' &gt; ') + "</p>"
+    return '<p class="navigation">' + navi.map{|n| "<a href=\"#{n[1]}\">#{n[0]}</a>"}.join(' &gt; ') + '</p>'
   end
 
   def export_html()
