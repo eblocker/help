@@ -125,7 +125,8 @@ class HtmlExporter
     collect_attachments()
     @translation = {
       attachments: {'de' => 'Anhänge', 'en-us' => 'Attachments'},
-      eblockerhelp: {'de' => 'eBlocker Hilfe', 'en-us' => 'eBlocker Help'}
+      eblockerhelp: {'de' => 'eBlocker Hilfe', 'en-us' => 'eBlocker Help'},
+      language: {'de' => 'Deutsch', 'en-us' => 'English'}
     }
   end
 
@@ -155,6 +156,19 @@ class HtmlExporter
     text
   end
 
+  # provide links to other translations (of the current article, section, category):
+  def translations(current_language, href)
+    links = @languages.map do |language|
+      name = translate(:language, language)
+      if language == current_language
+        name
+      else
+        '<a href="%s">%s</a>' % ["../#{language}/#{href}", name]
+      end
+    end
+    return "<p>" + links.join(' | ') + "</p>"
+  end
+
   def sort_by_position(items)
     items.sort do |a, b|
       a['position'].to_i <=> b['position'].to_i
@@ -180,8 +194,8 @@ class HtmlExporter
 <body>
 <h1><%= translate(:eblockerhelp, 'de') %> / <%= translate(:eblockerhelp, 'en-us') %></h1>
 <ul>
-<li><a href="de/index.html">Deutsch</a></li>
-<li><a href="en-us/index.html">English</a></li>
+<li><a href="de/index.html"><%= translate(:language, 'de') %></a></li>
+<li><a href="en-us/index.html"><%= translate(:language, 'en-us') %></a></li>
 </ul>
 </body>
 EOF
@@ -200,6 +214,7 @@ EOF
 
     template = ERB.new <<EOF
 <body>
+<%= translations(language, 'index.html') %>
 <%= navigation(navi) %>
 <h1><%= translate(:eblockerhelp, language) %></h1>
 <ul>
@@ -224,10 +239,12 @@ EOF
     end
     sections = sort_by_position(sections)
 
-    navi += [[category['name'], "#{category['id']}.html"]]
+    filename = "#{category['id']}.html"
+    navi += [[category['name'], filename]]
 
     template = ERB.new <<EOF
 <body>
+<%= translations(language, filename) %>
 <%= navigation(navi) %>
 <h1><%= category['name'] %></h1>
 <ul>
@@ -237,7 +254,7 @@ EOF
 </ul>
 </body>
 EOF
-    write_html("docs/#{language}/#{category['id']}.html", template.result(binding))
+    write_html("docs/#{language}/#{filename}", template.result(binding))
     sections.each do |section|
       export_articles(section, language, navi)
     end
@@ -252,10 +269,12 @@ EOF
     end
     articles = sort_by_position(articles)
 
-    navi += [[section['name'], "#{section['id']}.html"]]
+    filename = "#{section['id']}.html"
+    navi += [[section['name'], filename]]
 
     template = ERB.new <<EOF
 <body>
+<%= translations(language, filename) %>
 <%= navigation(navi) %>
 <h1><%= section['name'] %></h1>
 <ul>
@@ -265,7 +284,7 @@ EOF
 </ul>
 </body>
 EOF
-    write_html("docs/#{language}/#{section['id']}.html", template.result(binding))
+    write_html("docs/#{language}/#{filename}", template.result(binding))
     articles.each do |article|
       export_article(article, language, navi)
     end
@@ -279,8 +298,10 @@ EOF
         url: process_url(article, attachment['content_url'])
       }
     end
+    filename = "#{article['id']}.html"
     template = ERB.new(<<EOF, nil, '-')
 <body>
+<%= translations(language, filename) %>
 <%= navigation(navi) %>
 <h1><%= article['title'] %></h1>
 <%= body %>
@@ -294,7 +315,7 @@ EOF
 <% end -%>
 </body>
 EOF
-    write_html("docs/#{language}/#{article['id']}.html", template.result(binding))
+    write_html("docs/#{language}/#{filename}", template.result(binding))
   end
 
   def process_url(article, url)
