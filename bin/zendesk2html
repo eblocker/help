@@ -176,12 +176,17 @@ class HtmlExporter
   end
 
   def write_html(filename, body)
+    stylesheet = 'stylesheets/help.css'
+    if File.dirname(filename) != 'docs' # not on top level?
+      stylesheet = '../' + stylesheet
+    end
+
     File.open(filename, 'w') do |f|
       f.puts('<!DOCTYPE html>')
       f.puts('<html>')
       f.puts('<head>')
       f.puts('<meta charset="utf-8">')
-      f.puts('<link rel="stylesheet" href="../stylesheets/help.css">')
+      f.puts('<link rel="stylesheet" href="%s">' % [stylesheet])
       f.puts('</head>')
       f.puts(body)
       f.puts('</html>')
