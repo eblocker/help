@@ -13,16 +13,24 @@ languages = ['de', 'en-us']
 class ApiClient
   def initialize(base_url)
     @base_url = base_url
-    @http = nil # call start
+    @http = {} # map from hostname:port to HTTP object
   end
 
-  def start
-    uri = URI(@base_url) # only hostname and port are needed here
-    @http = Net::HTTP.start(uri.hostname, uri.port, use_ssl: true)
+  def http(uri)
+    key = [uri.hostname, uri.port].join(':')
+    http = @http[key]
+    if http == nil
+      warn "Creating new HTTP object for #{key}"
+      http = Net::HTTP.start(uri.hostname, uri.port, use_ssl: true)
+      @http[key] = http
+    end
+    return http
   end
 
   def finish
-    @http.finish()
+    @http.each do |key, http|
+      http.finish()
+    end
   end
 
   def download_unless_cached(url, local_file)
@@ -34,13 +42,23 @@ class ApiClient
     end
   end
 
-  def download_file(url, filename)
+  def download_file(url, filename, limit=10)
+    if limit == 0
+      raise "Too many redirects: #{url}"
+    end
     uri = URI(url)
     req = Net::HTTP::Get.new(uri)
     #req.basic_auth(@user, @password)
-    response = @http.request(req)
-    File.open(filename, 'w') do |file|
-      file.write(response.body)
+    response = http(uri).request(req)
+    case response
+    when Net::HTTPSuccess
+      File.open(filename, 'w') do |file|
+        file.write(response.body)
+      end
+    when Net::HTTPRedirection
+      download_file(response['Location'], filename, limit - 1)
+    else
+      raise "Could not get #{url}: #{response.inspect}"
     end
   end
 
@@ -305,7 +323,6 @@ end
 
 
 client = ApiClient.new(base_url)
-client.start()
 languages.each do |language|
   client.download_data(language)
   client.download_attachments(language)
