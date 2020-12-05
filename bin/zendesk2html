@@ -7,9 +7,16 @@ require 'uri'
 require 'find'
 require 'erb'
 
+# Usage:
+# bin/zendesk2html       export HTML
+# bin/zendesk2html -wp   export RSS for WordPress import
+
 base_url = 'https://eblocker.zendesk.com/api/v2/help_center/'
 languages = ['de', 'en-us']
 
+#------------------------------------------------------------------------------
+# API Client
+#------------------------------------------------------------------------------
 class ApiClient
   def initialize(base_url)
     @base_url = base_url
@@ -118,7 +125,10 @@ class ApiClient
   end
 end
 
-class HtmlExporter
+#------------------------------------------------------------------------------
+# Exporter base class
+#------------------------------------------------------------------------------
+class Exporter
   def initialize(api_client, languages)
     @languages = languages
     @api_client = api_client
@@ -156,6 +166,25 @@ class HtmlExporter
     text
   end
 
+  def sort_by_position(items)
+    items.sort do |a, b|
+      a['position'].to_i <=> b['position'].to_i
+    end
+  end
+
+  def process_body(article)
+    body = article['body']
+    body.gsub!(Regexp.new('\\b(https?://[0-9a-zA-Z_\\-\\./%]+)')) do |url|
+      process_url(article, $1)
+    end
+    return body
+  end
+end
+
+#------------------------------------------------------------------------------
+# HTML Exporter
+#------------------------------------------------------------------------------
+class HtmlExporter < Exporter
   # provide links to other translations (of the current article, section, category):
   def translations(current_language, href)
     links = @languages.map do |language|
@@ -167,12 +196,6 @@ class HtmlExporter
       end
     end
     return "<p>" + links.join(' | ') + "</p>"
-  end
-
-  def sort_by_position(items)
-    items.sort do |a, b|
-      a['position'].to_i <=> b['position'].to_i
-    end
   end
 
   def write_html(filename, body)
@@ -341,16 +364,120 @@ EOF
     warn "Unhandled URL: #{url}"
     return url
   end
+end
 
-  def process_body(article)
-    body = article['body']
-    body.gsub!(Regexp.new('\\b(https?://[0-9a-zA-Z_\\-\\./%]+)')) do |url|
-      process_url(article, $1)
+#------------------------------------------------------------------------------
+# WordPress RSS Exporter
+#------------------------------------------------------------------------------
+require 'pp'
+class WordPressExporter < Exporter
+  def export_rss(template_file, file, language)
+    create_cross_links(language)
+    template = ERB.new(File.read(template_file))
+    items = [] # all items in the RSS
+    pp @attachments
+    categories = []
+    @api_client.each_object('categories', language) {|category| categories << category}
+    categories = sort_by_position(categories)
+
+    # Remove first (insolvency FAQ) and last (release notes) category:
+    categories = categories[1..-1]
+
+    categories.each do |category|
+      puts("#{category['name']}")
+      sections = []
+      @api_client.each_object('sections', language) do |section|
+        if section['category_id'] == category['id']
+          sections << section
+        end
+      end
+      sections = sort_by_position(sections)
+
+      sections.each do |section|
+        puts("    #{section['name']}")
+        articles = []
+        @api_client.each_object('articles', language) do |article|
+          if article['section_id'] == section['id']
+            articles << article
+          end
+        end
+        articles = sort_by_position(articles)
+
+        articles.each do |article|
+          #puts("        #{article['name']}")
+          #pp article
+          item = {:title => article['name'],
+                  :updated => format_date(article['updated_at']),
+                  :link  => shortname(article['name']),
+                  :body  => process_body(article),
+                  :cat   => category['name'],
+                  :catid => shortname(category['name']),
+                  :tag   => section['name'],
+                  :tagid => shortname(section['name'])}
+          items << item
+        end
+      end
     end
-    return body
+    File.open(file, 'w') do |f|
+      f.puts(template.result(binding))
+    end
+  end
+
+  def format_date(d)
+    d.sub('T', ' ').sub('Z', '')
+  end
+
+  def create_cross_links(language)
+    @cross_links = {}
+    @api_client.each_object('categories', language) do |category|
+      @cross_links[category['id']] = '/docs-category/' + shortname(category['name'])
+    end
+    @api_client.each_object('sections', language) do |section|
+      @cross_links[section['id']] = '/docs-tag/' + shortname(section['name'])
+    end
+    @api_client.each_object('articles', language) do |article|
+      @cross_links[article['id']] = '/docs/' + shortname(article['name'])
+    end
+  end
+
+  # Convert a string like "Fritzbox 7490 - The WiFi is very slow."
+  # to a short URL-friendly string like "fritzbox-7490-the-wifi-is-very-slow".
+  def shortname(str)
+    str.strip().split(/\W+/).map{|s| s.downcase}.join('-')
+  end
+
+  def process_url(article, url)
+    # Attachments (images):
+    if url =~ Regexp.new('^https://(support.eblocker.com|eblocker.zendesk.com)/hc/article_attachments/\\d+/(.+)$')
+      return "https://eblocker.org/wp-content/uploads/2020/12/docs-attachments/#{article['id']}-#$2"
+    end
+
+    # Links to other articles/categories/sections:
+    if url =~ Regexp.new('^https://(support.eblocker.com|eblocker.zendesk.com)/hc/[a-z\\-]+/(articles|categories|sections)/(\\d+)')
+      target = @cross_links[$3.to_i]
+      if target == nil
+        raise "Could not get cross-link for ID #$3, URL #{url}"
+      else
+        return target
+      end
+    end
+
+    warn "Unhandled URL: #{url}"
+    return url
   end
 end
 
+#------------------------------------------------------------------------------
+# main
+#------------------------------------------------------------------------------
+format = :html
+if ARGV.size == 1
+  if ARGV[0] == '-wp'
+    format = :wp
+  else
+    abort "Usage: #$0 [-wp]\n  Default:    export HTML\n  Option -wp: export to RSS for WordPress import"
+  end
+end
 
 client = ApiClient.new(base_url)
 languages.each do |language|
@@ -359,6 +486,9 @@ languages.each do |language|
 end
 client.finish()
 
-exporter = HtmlExporter.new(client, languages)
-exporter.export_html()
+if format == :html
+  HtmlExporter.new(client, languages).export_html()
+else
+  WordPressExporter.new(client, languages).export_rss('wp-import.template.xml', 'wp-import.xml', 'en-US')
+end
 

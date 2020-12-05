@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0"
+	xmlns:excerpt="http://wordpress.org/export/1.2/excerpt/"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:wp="http://wordpress.org/export/1.2/"
+>
+
+<channel>
+	<language><%= language %></language>
+	<wp:wxr_version>1.2</wp:wxr_version>
+
+        <% items.each do |item| %>
+	<item>
+		<title><%= item[:title] %></title>
+		<link>https://eblocker.org/docs/<%= item[:link] %>/</link>
+		<pubDate><%= item[:updated] %></pubDate>
+		<dc:creator><![CDATA[Benne]]></dc:creator>
+		<description></description>
+		<content:encoded><![CDATA[
+<%= item[:body] %>
+]]></content:encoded>
+		<wp:post_date_gmt><![CDATA[<%= item[:updated] %>]]></wp:post_date_gmt>
+		<wp:status><![CDATA[publish]]></wp:status>
+		<wp:post_type><![CDATA[docs]]></wp:post_type>
+		<category domain="doc_category" nicename="<%= item[:catid] %>"><![CDATA[<%= item[:cat] %>]]></category>
+		<category domain="doc_tag" nicename="<%= item[:tagid] %>"><![CDATA[<%= item[:tag] %>]]></category>
+	</item>
+        <% end %>
+</channel>
+</rss>
