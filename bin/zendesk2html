@@ -449,7 +449,7 @@ class WordPressExporter < Exporter
   def process_url(article, url)
     # Attachments (images):
     if url =~ Regexp.new('^https://(support.eblocker.com|eblocker.zendesk.com)/hc/article_attachments/\\d+/(.+)$')
-      return "https://eblocker.org/wp-content/uploads/2020/12/docs-attachments/#{article['id']}-#$2"
+      return "https://eblocker.org/wp-content/uploads/docs/#{article['id']}-#$2"
     end
 
     # Links to other articles/categories/sections:
