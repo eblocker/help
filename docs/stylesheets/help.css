@@ -8,6 +8,11 @@ img {
     max-width: 100%;
 }
 
+.redirect {
+    background-color: #ffff00;
+    padding: 16px;
+}
+
 .navigation {
     background-color: #ea5b0c;
     padding: 6px;

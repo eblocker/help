@@ -138,6 +138,9 @@ class Exporter
       eblockerhelp: {'de' => 'eBlocker Hilfe', 'en-us' => 'eBlocker Help'},
       language: {'de' => 'Deutsch', 'en-us' => 'English'}
     }
+    languages.each do |language|
+      create_docs_links(language)
+    end
   end
 
   # Collect attachments that are not inline images
@@ -179,6 +182,26 @@ class Exporter
     end
     return body
   end
+
+  # Create links for articles, categories and sections in BetterDocs
+  def create_docs_links(language)
+    @docs_links = {}
+    @api_client.each_object('categories', language) do |category|
+      @docs_links[category['id']] = '/docs-category/' + shortname(category['name'])
+    end
+    @api_client.each_object('sections', language) do |section|
+      @docs_links[section['id']] = '/docs-tag/' + shortname(section['name'])
+    end
+    @api_client.each_object('articles', language) do |article|
+      @docs_links[article['id']] = '/docs/' + shortname(article['name'])
+    end
+  end
+
+  # Convert a string like "Fritzbox 7490 - The WiFi is very slow."
+  # to a short URL-friendly string like "fritzbox-7490-the-wifi-is-very-slow".
+  def shortname(str)
+    str.strip().split(/\W+/).map{|s| s.downcase}.join('-')
+  end
 end
 
 #------------------------------------------------------------------------------
@@ -198,7 +221,7 @@ class HtmlExporter < Exporter
     return "<p>" + links.join(' | ') + "</p>"
   end
 
-  def write_html(filename, body)
+  def write_html(filename, body, redirect)
     stylesheet = 'stylesheets/help.css'
     if File.dirname(filename) != 'docs' # not on top level?
       stylesheet = '../' + stylesheet
@@ -209,9 +232,17 @@ class HtmlExporter < Exporter
       f.puts('<html>')
       f.puts('<head>')
       f.puts('<meta charset="utf-8">')
+      if redirect
+        f.puts('<meta http-equiv="refresh" content="0; url=%s">' % [redirect])
+      end
       f.puts('<link rel="stylesheet" href="%s">' % [stylesheet])
       f.puts('</head>')
+      f.puts('<body>')
+      if redirect
+        f.puts('<p class="redirect"><b>Note:</b> This page has moved to <a href="%s">%s</a></p>' % [redirect, redirect])
+      end
       f.puts(body)
+      f.puts('</body>')
       f.puts('</html>')
     end
     warn "Wrote #{filename}"
@@ -221,17 +252,30 @@ class HtmlExporter < Exporter
     return '<p class="navigation">' + navi.map{|n| "<a href=\"#{n[1]}\">#{n[0]}</a>"}.join(' &gt; ') + '</p>'
   end
 
+  # Redirect english pages to new BetterDocs location
+  def redirect(language, id)
+    if language == 'de'
+      return nil
+    end
+
+    base_url = 'https://eblocker.org'
+
+    if id == nil
+      return base_url + '/docs/'
+    end
+
+    return base_url + @docs_links[id]
+  end
+
   def export_html()
     template = ERB.new <<EOF
-<body>
 <h1><%= translate(:eblockerhelp, 'de') %> / <%= translate(:eblockerhelp, 'en-us') %></h1>
 <ul>
 <li><a href="de/index.html"><%= translate(:language, 'de') %></a></li>
 <li><a href="en-us/index.html"><%= translate(:language, 'en-us') %></a></li>
 </ul>
-</body>
 EOF
-    write_html('docs/index.html', template.result(binding))
+    write_html('docs/index.html', template.result(binding), nil)
     @languages.each do |language|
       export_html_lang(language)
     end
@@ -245,7 +289,6 @@ EOF
     navi = [[translate(:eblockerhelp, language), 'index.html']]
 
     template = ERB.new <<EOF
-<body>
 <%= translations(language, 'index.html') %>
 <%= navigation(navi) %>
 <h1><%= translate(:eblockerhelp, language) %></h1>
@@ -254,9 +297,8 @@ EOF
 <li><a href="<%= category['id'] %>.html"><%= category['name'] %></a></li>
 <% end %>
 </ul>
-</body>
 EOF
-    write_html("docs/#{language}/index.html", template.result(binding))
+    write_html("docs/#{language}/index.html", template.result(binding), redirect(language, nil))
     categories.each do |category|
       export_sections(category, language, navi)
     end
@@ -275,7 +317,6 @@ EOF
     navi += [[category['name'], filename]]
 
     template = ERB.new <<EOF
-<body>
 <%= translations(language, filename) %>
 <%= navigation(navi) %>
 <h1><%= category['name'] %></h1>
@@ -284,9 +325,8 @@ EOF
 <li><a href="<%= section['id'] %>.html"><%= section['name'] %></a></li>
 <% end %>
 </ul>
-</body>
 EOF
-    write_html("docs/#{language}/#{filename}", template.result(binding))
+    write_html("docs/#{language}/#{filename}", template.result(binding), redirect(language, nil))
     sections.each do |section|
       export_articles(section, language, navi)
     end
@@ -305,7 +345,6 @@ EOF
     navi += [[section['name'], filename]]
 
     template = ERB.new <<EOF
-<body>
 <%= translations(language, filename) %>
 <%= navigation(navi) %>
 <h1><%= section['name'] %></h1>
@@ -314,9 +353,8 @@ EOF
 <li><a href="<%= article['id'] %>.html"><%= article['name'] %></a></li>
 <% end %>
 </ul>
-</body>
 EOF
-    write_html("docs/#{language}/#{filename}", template.result(binding))
+    write_html("docs/#{language}/#{filename}", template.result(binding), redirect(language, section['id']))
     articles.each do |article|
       export_article(article, language, navi)
     end
@@ -332,7 +370,6 @@ EOF
     end
     filename = "#{article['id']}.html"
     template = ERB.new(<<EOF, nil, '-')
-<body>
 <%= translations(language, filename) %>
 <%= navigation(navi) %>
 <h1><%= article['title'] %></h1>
@@ -345,9 +382,8 @@ EOF
 <%   end -%>
 </ul>
 <% end -%>
-</body>
 EOF
-    write_html("docs/#{language}/#{filename}", template.result(binding))
+    write_html("docs/#{language}/#{filename}", template.result(binding), redirect(language, article['id']))
   end
 
   def process_url(article, url)
@@ -372,7 +408,6 @@ end
 require 'pp'
 class WordPressExporter < Exporter
   def export_rss(template_file, file, language)
-    create_cross_links(language)
     template = ERB.new(File.read(template_file))
     items = [] # all items in the RSS
     pp @attachments
@@ -427,25 +462,6 @@ class WordPressExporter < Exporter
     d.sub('T', ' ').sub('Z', '')
   end
 
-  def create_cross_links(language)
-    @cross_links = {}
-    @api_client.each_object('categories', language) do |category|
-      @cross_links[category['id']] = '/docs-category/' + shortname(category['name'])
-    end
-    @api_client.each_object('sections', language) do |section|
-      @cross_links[section['id']] = '/docs-tag/' + shortname(section['name'])
-    end
-    @api_client.each_object('articles', language) do |article|
-      @cross_links[article['id']] = '/docs/' + shortname(article['name'])
-    end
-  end
-
-  # Convert a string like "Fritzbox 7490 - The WiFi is very slow."
-  # to a short URL-friendly string like "fritzbox-7490-the-wifi-is-very-slow".
-  def shortname(str)
-    str.strip().split(/\W+/).map{|s| s.downcase}.join('-')
-  end
-
   def process_url(article, url)
     # Attachments (images):
     if url =~ Regexp.new('^https://(support.eblocker.com|eblocker.zendesk.com)/hc/article_attachments/\\d+/(.+)$')
@@ -454,7 +470,7 @@ class WordPressExporter < Exporter
 
     # Links to other articles/categories/sections:
     if url =~ Regexp.new('^https://(support.eblocker.com|eblocker.zendesk.com)/hc/[a-z\\-]+/(articles|categories|sections)/(\\d+)')
-      target = @cross_links[$3.to_i]
+      target = @docs_links[$3.to_i]
       if target == nil
         raise "Could not get cross-link for ID #$3, URL #{url}"
       else
