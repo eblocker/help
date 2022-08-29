@@ -187,13 +187,13 @@ class Exporter
   def create_docs_links(language)
     @docs_links = {}
     @api_client.each_object('categories', language) do |category|
-      @docs_links[category['id']] = '/docs-category/' + shortname(category['name'])
+      @docs_links[category['id']] = '/en/docs-category/' + shortname(category['name'])
     end
     @api_client.each_object('sections', language) do |section|
-      @docs_links[section['id']] = '/docs-tag/' + shortname(section['name'])
+      @docs_links[section['id']] = '/en/docs-tag/' + shortname(section['name'])
     end
     @api_client.each_object('articles', language) do |article|
-      @docs_links[article['id']] = '/docs/' + shortname(article['name'])
+      @docs_links[article['id']] = '/en/docs/' + shortname(article['name'])
     end
   end
 
@@ -261,7 +261,7 @@ class HtmlExporter < Exporter
     base_url = 'https://eblocker.org'
 
     if id == nil
-      return base_url + '/docs/'
+      return base_url + '/en/docs/'
     end
 
     return base_url + @docs_links[id]
